@@ -12,7 +12,6 @@ const Images = require('./models/images');
 const Employee = require('./models/employee');
 const cloudinary = require('./cloudinary');
 const store = new session.MemoryStore();
-const MongoStore = require('connect-mongo')(session);
 
 
 
@@ -35,15 +34,11 @@ app.use(cors());
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
-        maxAge: 60 * 60 * 1000
+        maxAge: 1000000
     },
-    store: new MongoStore({
-        mongooseConnection: mongoose.connection,
-        ttl: 60 * 60 
-    })
+    store: store
 }));
 
 const storage = multer.diskStorage({
