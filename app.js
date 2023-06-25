@@ -34,11 +34,8 @@ app.use(cors());
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 1000000
-    },
-    store: store
+    resave: false,
+    saveUninitialized: false
 }));
 
 const storage = multer.diskStorage({
