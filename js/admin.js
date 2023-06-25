@@ -4,7 +4,7 @@ dturForm.addEventListener('submit', async (e) => {
     const dturFileInput = document.querySelector('.dtur_file_input')
     const dturFile = dturFileInput.files[0]
     const dTurFormData = new FormData();
-    console.log(dTurFormData);
+    
     const dturCity = document.querySelector('.dtur_city').value;
     const dturTitle = document.querySelector('.dtur_title').value;
     const dturPrice = document.querySelector('.dtur_price').value;
@@ -145,7 +145,7 @@ img3FormBtn.addEventListener('click', async (e) => {
 
 
 const EmployeeForm = document.querySelector('.employee_container form');
-console.log(EmployeeForm)
+
 EmployeeForm.addEventListener('submit', async () => {
     const name = document.querySelector('.emp_name').value;
     const job = document.querySelector('.emp_job').value;

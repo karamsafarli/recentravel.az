@@ -10,6 +10,7 @@ const multer = require('multer');
 const cors = require('cors');
 const Images = require('./models/images');
 const Employee = require('./models/employee');
+const cloudinary = require('./cloudinary');
 
 
 
@@ -45,7 +46,15 @@ const storage = multer.diskStorage({
     filename: (req, file, cb) => {
         cb(null, Date.now() + '--' + file.originalname)
     }
+});
+
+const storage2 = multer.diskStorage({
+    filename: (req, file, cb) => {
+        cb(null, file.originalname)
+    }
 })
+
+const upload2 = multer({ storage: storage2 })
 
 const upload = multer({ storage: storage });
 
@@ -239,21 +248,42 @@ app.get('/about', async (req, res) => {
     }
 });
 
+// app.post('/about', upload.single('image'), async (req, res) => {
+//     const { name, job, description } = req.body;
+//     const img = req.file.path;
+//     try {
+//         const employees = new Employee({
+//             photo: img,
+//             name: name,
+//             job: job,
+//             description: description
+//         });
+//         await employees.save()
+//         res.status(201).redirect('/admin')
+//     } catch (error) {
+//         res.status(501).send('Cannot added')
+//     }
+// });
+
+
 app.post('/about', upload.single('image'), async (req, res) => {
     const { name, job, description } = req.body;
     const img = req.file.path;
-    try {
-        const employees = new Employee({
-            photo: img,
-            name: name,
-            job: job,
-            description: description
-        });
-        await employees.save()
-        res.status(201).redirect('/admin')
-    } catch (error) {
-        res.status(501).send('Cannot added')
-    }
+    cloudinary.uploader.upload(img, async (err, result) => {
+        console.log(result.url)
+        try {
+            const employees = new Employee({
+                photo: result.url,
+                name: name,
+                job: job,
+                description: description
+            });
+            await employees.save()
+            res.status(201).redirect('/admin')
+        } catch (error) {
+            res.status(501).send('Cannot added')
+        }
+    })
 });
 
 
@@ -293,3 +323,4 @@ app.get('/xarici-turlar/:id', async (req, res) => {
 // app.get('/product', (req, res) => {
 //     res.sendFile(path.join(__dirname, '_DProduct.html'));
 //   });
+
