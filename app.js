@@ -269,7 +269,7 @@ app.post('/update-images-4', upload2.single('image'), async (req, res) => {
 
 });
 
-app.get('/about', async (req, res) => {
+app.get('/about-employee', async (req, res) => {
     try {
         const employees = await Employee.find();
         res.status(200).json(employees)
@@ -278,22 +278,6 @@ app.get('/about', async (req, res) => {
     }
 });
 
-// app.post('/about', upload.single('image'), async (req, res) => {
-//     const { name, job, description } = req.body;
-//     const img = req.file.path;
-//     try {
-//         const employees = new Employee({
-//             photo: img,
-//             name: name,
-//             job: job,
-//             description: description
-//         });
-//         await employees.save()
-//         res.status(201).redirect('/admin')
-//     } catch (error) {
-//         res.status(501).send('Cannot added')
-//     }
-// });
 
 
 app.post('/about', upload2.single('image'), async (req, res) => {
