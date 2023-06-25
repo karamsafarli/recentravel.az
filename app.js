@@ -120,7 +120,7 @@ app.get('/admin', checkAdminAuth, async (req, res) => {
 })
 
 
-app.post('/daxili-turlar', upload.single('image'), async (req, res) => {
+app.post('/daxili-turlar', upload2.single('image'), async (req, res) => {
     const { city, title, price } = req.body;
     const imgPath = req.file.path;
 
@@ -163,7 +163,7 @@ app.delete('/xarici-turlar/:id', async (req, res) => {
     }
 });
 
-app.post('/xarici-turlar', upload.single('image'), async (req, res) => {
+app.post('/xarici-turlar', upload2.single('image'), async (req, res) => {
     const { city, title, price } = req.body;
     const imgPath = req.file.path;
     cloudinary.uploader.upload(imgPath, { secure: true }, async (err, result) => {
@@ -193,7 +193,7 @@ app.get('/header-images', async (req, res) => {
     }
 });
 
-app.post('/update-images-1', upload.single('image'), async (req, res) => {
+app.post('/update-images-1', upload2.single('image'), async (req, res) => {
     const img = req.file.path;
     cloudinary.uploader.upload(img, { secure: true }, async (err, result) => {
         try {
@@ -207,7 +207,7 @@ app.post('/update-images-1', upload.single('image'), async (req, res) => {
     })
 });
 
-app.post('/update-images-2', upload.single('image'), async (req, res) => {
+app.post('/update-images-2', upload2.single('image'), async (req, res) => {
     const img = req.file.path
     cloudinary.uploader.upload(img, { secure: true }, async (err, result) => {
         try {
@@ -227,7 +227,7 @@ app.post('/update-images-2', upload.single('image'), async (req, res) => {
     })
 });
 
-app.post('/update-images-3', upload.single('image'), async (req, res) => {
+app.post('/update-images-3', upload2.single('image'), async (req, res) => {
     const img = req.file.path
     cloudinary.uploader.upload(img, { secure: true }, async (err, result) => {
         try {
@@ -248,7 +248,7 @@ app.post('/update-images-3', upload.single('image'), async (req, res) => {
 });
 
 
-app.post('/update-images-4', upload.single('image'), async (req, res) => {
+app.post('/update-images-4', upload2.single('image'), async (req, res) => {
     const img = req.file.path
     cloudinary.uploader.upload(img, { secure: true }, async (err, result) => {
         try {
