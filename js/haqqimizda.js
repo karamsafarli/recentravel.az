@@ -21,7 +21,7 @@ const aboutContainer = document.querySelector('.about_container');
 
 const fetchEmployees = async () => {
   try {
-    const res = await fetch('http://localhost:3000/about');
+    const res = await fetch('https://lively-bee-beanie.cyclic.app/about');
     const data = await res.json();
 
     data.map((el) => {

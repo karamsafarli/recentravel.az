@@ -54,7 +54,7 @@ const cityNames = document.querySelectorAll('.city_name');
 
 const fetchImages = async () => {
   try {
-    const res = await fetch('http://localhost:3000/header-images');
+    const res = await fetch('https://lively-bee-beanie.cyclic.app/header-images');
     const data = await res.json()
     homeImg.setAttribute('src', `${data[0].headerBackground.path}`);
     data[0].smallImages.map((el, index) => {
@@ -73,7 +73,7 @@ const xariciTurSlider = document.querySelector('.xaricitur-slider');
 const daxiliTurSlider = document.querySelector('.daxilitur-slider');
 const fetchXaricitur = async () => {
   try {
-    const res = await fetch('http://localhost:3000/xarici-turlar');
+    const res = await fetch('https://lively-bee-beanie.cyclic.app/xarici-turlar');
     const data = await res.json();
 
     data.reverse().map((el) => {
@@ -107,7 +107,7 @@ const fetchXaricitur = async () => {
 
 const fetchDaxilitur = async () => {
   try {
-    const res = await fetch(`http://localhost:3000/daxili-turlar`);
+    const res = await fetch(`https://lively-bee-beanie.cyclic.app/daxili-turlar`);
     const data = await res.json();
 
     data.reverse().map((el) => {
