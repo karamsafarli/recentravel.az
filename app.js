@@ -11,7 +11,8 @@ const cors = require('cors');
 const Images = require('./models/images');
 const Employee = require('./models/employee');
 const cloudinary = require('./cloudinary');
-const store = new session.MemoryStore();
+const MongoDBStore = require('connect-mongodb-session')(session);
+
 
 
 
@@ -32,10 +33,25 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
+const store = new MongoDBStore({
+    uri: process.env.MONGODB_URI.toString(),
+    collection: 'sessions',
+});
+
+store.on('error', (error) => {
+    console.error('Session store error:', error);
+});
+
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: true,
+    store: store,
+    cookie: {
+        secure: true, 
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 24, 
+    },
 }));
 
 const storage = multer.diskStorage({
@@ -116,14 +132,11 @@ app.get('/admin', async (req, res) => {
     const xariciTurlar = await XariciTur.find();
     const employees = await Employee.find();
 
-    setTimeout(() => {
-        if (req.session.adminID) {
-            res.render('admin', { daxiliTurlar, xariciTurlar, employees })
-        } else {
-            res.redirect('/login')
-        }
-    }, 500);
-
+    if (req.session.adminID) {
+        res.render('admin', { daxiliTurlar, xariciTurlar, employees })
+    } else {
+        res.redirect('/login')
+    }
 })
 
 
