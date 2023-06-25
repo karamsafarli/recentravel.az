@@ -115,11 +115,14 @@ app.get('/admin', async (req, res) => {
     const daxiliTurlar = await DaxiliTur.find();
     const xariciTurlar = await XariciTur.find();
     const employees = await Employee.find();
-    if (req.session.adminID) {
-        res.render('admin', { daxiliTurlar, xariciTurlar, employees })
-    } else {
-        res.redirect('/login')
-    }
+
+    setTimeout(() => {
+        if (req.session.adminID) {
+            res.render('admin', { daxiliTurlar, xariciTurlar, employees })
+        } else {
+            res.redirect('/login')
+        }
+    }, 500);
 
 })
 
