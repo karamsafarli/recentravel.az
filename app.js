@@ -269,11 +269,11 @@ app.get('/about', async (req, res) => {
 app.post('/about', upload.single('image'), async (req, res) => {
     const { name, job, description } = req.body;
     const img = req.file.path;
-    cloudinary.uploader.upload(img, async (err, result) => {
+    cloudinary.uploader.upload(img, { secure: true }, async (err, result) => {
         console.log(result.url)
         try {
             const employees = new Employee({
-                photo: result.url,
+                photo: result.secure_url,
                 name: name,
                 job: job,
                 description: description
