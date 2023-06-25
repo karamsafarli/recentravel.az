@@ -48,8 +48,8 @@ app.use(session({
     saveUninitialized: true,
     store: store,
     cookie: {
-        secure: true, 
-        maxAge: 1000 * 60 * 60 * 24, 
+        secure: true,
+        maxAge: 1000 * 60 * 60 * 24,
     },
 }));
 
@@ -111,7 +111,7 @@ app.get('/login', (req, res) => {
 
 app.post('/login', (req, res) => {
     if (req.body.username === process.env.ADMIN_USERNAME.toString() && req.body.password === process.env.ADMIN_PASSWORD.toString()) {
-        req.session.adminID = process.env.ADMIN_ID.toString()
+        req.session.isAdminAuthenticated = true;
         res.redirect('/admin')
     } else {
         res.redirect('/login')
@@ -119,23 +119,19 @@ app.post('/login', (req, res) => {
 })
 
 const checkAdminAuth = (req, res, next) => {
-    if (req.session.adminID) {
+    if (req.session.isAdminAuthenticated) {
         next();
     } else {
         res.redirect('/login');
     }
 };
 
-app.get('/admin', async (req, res) => {
+app.get('/admin', checkAdminAuth, async (req, res) => {
     const daxiliTurlar = await DaxiliTur.find();
     const xariciTurlar = await XariciTur.find();
     const employees = await Employee.find();
 
-    if (req.session.adminID) {
-        res.render('admin', { daxiliTurlar, xariciTurlar, employees })
-    } else {
-        res.redirect('/login')
-    }
+    res.render('admin', { daxiliTurlar, xariciTurlar, employees })
 })
 
 
