@@ -56,9 +56,9 @@ const fetchImages = async () => {
   try {
     const res = await fetch('http://localhost:3000/header-images');
     const data = await res.json()
-    homeImg.setAttribute('src', `./server/${data[0].headerBackground.path}`);
+    homeImg.setAttribute('src', `${data[0].headerBackground.path}`);
     data[0].smallImages.map((el, index) => {
-      smallImages[index].setAttribute('src', `./server/${el.path}`);
+      smallImages[index].setAttribute('src', `${el.path}`);
       cityNames[index].innerHTML = el.cityName
     })
 
@@ -80,7 +80,7 @@ const fetchXaricitur = async () => {
       const product = `<div class="product-card">
       <div class="product-image">
           <a href="/xarici-turlar/${el._id}">
-          <img src="./server/${el.imagePath}" class="product-thumb" alt="">
+          <img src="${el.imagePath}" class="product-thumb" alt="">
         </a>
     
       </div>
@@ -114,7 +114,7 @@ const fetchDaxilitur = async () => {
       const product = `<div class="product-card">
       <div class="product-image">
           <a href="/daxili-turlar/${el._id}">
-          <img src="./server/${el.imagePath}" class="product-thumb" alt="">
+          <img src="${el.imagePath}" class="product-thumb" alt="">
         </a>
     
       </div>

@@ -26,7 +26,7 @@ const fetchEmployees = async () => {
 
     data.map((el) => {
       const card = `<div class="col-lg-4 col-6 col-md-6">
-      <img src="./server/${el.photo}" alt="">
+      <img src="${el.photo}" alt="">
       <div class="haqqimizda-m">
         <h2>${el.name}</h2>
         <h3>${el.job}</h3>

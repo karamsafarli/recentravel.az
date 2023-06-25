@@ -25,7 +25,7 @@ const fetchPosts = async () => {
     const card = `
     <div class="col-lg-4 col-6 col-md-6">
     <a href="/daxili-turlar/${el._id}">
-      <img src="./server/${el.imagePath}" alt="">
+      <img src="${el.imagePath}" alt="">
     </a>
     
     <div class="img-m">
