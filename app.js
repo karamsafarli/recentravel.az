@@ -11,6 +11,7 @@ const cors = require('cors');
 const Images = require('./models/images');
 const Employee = require('./models/employee');
 const cloudinary = require('./cloudinary');
+const store = new session.MemoryStore();
 
 
 
@@ -30,13 +31,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
     saveUninitialized: false,
     cookie: {
-        expires: new Date(Date.now() + 5 * 60 * 1000)
-    }
+        maxAge: 1000000
+    },
+    store: store
 }));
 
 const storage = multer.diskStorage({
@@ -334,7 +336,4 @@ app.get('/xarici-turlar/:id', async (req, res) => {
     }
 });
 
-// app.get('/product', (req, res) => {
-//     res.sendFile(path.join(__dirname, '_DProduct.html'));
-//   });
 
