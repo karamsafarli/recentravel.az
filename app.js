@@ -124,19 +124,21 @@ app.post('/daxili-turlar', upload.single('image'), async (req, res) => {
     const { city, title, price } = req.body;
     const imgPath = req.file.path;
 
-    try {
-        const newCard = new DaxiliTur({
-            cityName: city,
-            title: title,
-            imagePath: imgPath,
-            price: price
-        });
+    cloudinary.uploader.upload(imgPath, { secure: true }, async (err, result) => {
+        try {
+            const newCard = new DaxiliTur({
+                cityName: city,
+                title: title,
+                imagePath: result.secure_url,
+                price: price
+            });
 
-        await newCard.save();
-        res.status(201).redirect('/admin')
-    } catch (error) {
-        res.status(500).redirect('/admin')
-    }
+            await newCard.save();
+            res.status(201).redirect('/admin')
+        } catch (error) {
+            res.status(500).redirect('/admin')
+        }
+    })
 });
 
 app.delete('/daxili-turlar/:id', async (req, res) => {
@@ -164,19 +166,21 @@ app.delete('/xarici-turlar/:id', async (req, res) => {
 app.post('/xarici-turlar', upload.single('image'), async (req, res) => {
     const { city, title, price } = req.body;
     const imgPath = req.file.path;
-    try {
-        const newCard = new XariciTur({
-            cityName: city,
-            title: title,
-            imagePath: imgPath,
-            price: price
-        });
+    cloudinary.uploader.upload(imgPath, { secure: true }, async (err, result) => {
+        try {
+            const newCard = new XariciTur({
+                cityName: city,
+                title: title,
+                imagePath: result.secure_url,
+                price: price
+            });
 
-        await newCard.save();
-        res.status(201).redirect('/admin')
-    } catch (error) {
-        res.status(500).redirect('/admin')
-    }
+            await newCard.save();
+            res.status(201).redirect('/admin')
+        } catch (error) {
+            res.status(500).redirect('/admin')
+        }
+    })
 });
 
 
@@ -190,66 +194,79 @@ app.get('/header-images', async (req, res) => {
 });
 
 app.post('/update-images-1', upload.single('image'), async (req, res) => {
-    try {
-        const bgImage = await Images.findOne();
-        bgImage.headerBackground.path = req.file.path;
-        await bgImage.save();
-        res.status(201).redirect('/admin');
-    } catch (error) {
-        res.status(501).send('Error occured')
-    }
+    const img = req.file.path;
+    cloudinary.uploader.upload(img, { secure: true }, async (err, result) => {
+        try {
+            const bgImage = await Images.findOne();
+            bgImage.headerBackground.path = result.secure_url;
+            await bgImage.save();
+            res.status(201).redirect('/admin');
+        } catch (error) {
+            res.status(501).send('Error occured')
+        }
+    })
 });
 
 app.post('/update-images-2', upload.single('image'), async (req, res) => {
-    try {
-        const imgs = await Images.findOne();
-        if (req.file) {
-            imgs.smallImages[0].path = req.file.path;
-        }
+    const img = req.file.path
+    cloudinary.uploader.upload(img, { secure: true }, async (err, result) => {
+        try {
+            const imgs = await Images.findOne();
+            if (req.file) {
+                imgs.smallImages[0].path = result.secure_url;
+            }
 
-        if (req.body.text) {
-            imgs.smallImages[0].cityName = req.body.text;
+            if (req.body.text) {
+                imgs.smallImages[0].cityName = req.body.text;
+            }
+            await imgs.save();
+            res.status(201).redirect('/admin');
+        } catch (error) {
+            res.status(501).send('Error occured')
         }
-        await imgs.save();
-        res.status(201).redirect('/admin');
-    } catch (error) {
-        res.status(501).send('Error occured')
-    }
+    })
 });
 
 app.post('/update-images-3', upload.single('image'), async (req, res) => {
-    try {
-        const imgs = await Images.findOne();
-        if (req.file) {
-            imgs.smallImages[1].path = req.file.path;
-        }
+    const img = req.file.path
+    cloudinary.uploader.upload(img, { secure: true }, async (err, result) => {
+        try {
+            const imgs = await Images.findOne();
+            if (req.file) {
+                imgs.smallImages[1].path = result.secure_url;
+            }
 
-        if (req.body.text) {
-            imgs.smallImages[1].cityName = req.body.text;
+            if (req.body.text) {
+                imgs.smallImages[1].cityName = req.body.text;
+            }
+            await imgs.save();
+            res.status(201).redirect('/admin');
+        } catch (error) {
+            res.status(501).send('Error occured')
         }
-        await imgs.save();
-        res.status(201).redirect('/admin');
-    } catch (error) {
-        res.status(501).send('Error occured')
-    }
+    })
 });
 
 
 app.post('/update-images-4', upload.single('image'), async (req, res) => {
-    try {
-        const imgs = await Images.findOne();
-        if (req.file) {
-            imgs.smallImages[2].path = req.file.path;
-        }
+    const img = req.file.path
+    cloudinary.uploader.upload(img, { secure: true }, async (err, result) => {
+        try {
+            const imgs = await Images.findOne();
+            if (req.file) {
+                imgs.smallImages[2].path = result.secure_url;
+            }
 
-        if (req.body.text) {
-            imgs.smallImages[2].cityName = req.body.text;
+            if (req.body.text) {
+                imgs.smallImages[2].cityName = req.body.text;
+            }
+            await imgs.save();
+            res.status(201).redirect('/admin');
+        } catch (error) {
+            res.status(501).send('Error occured')
         }
-        await imgs.save();
-        res.status(201).redirect('/admin');
-    } catch (error) {
-        res.status(501).send('Error occured')
-    }
+    })
+
 });
 
 app.get('/about', async (req, res) => {
