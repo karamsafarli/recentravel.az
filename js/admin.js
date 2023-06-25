@@ -52,6 +52,8 @@ dTurDelBtn.map((el, index) => {
             await fetch(`/daxili-turlar/${el.dataset.id}`, {
                 method: 'DELETE'
             })
+        } else {
+            e.preventDefault()
         }
     })
 });
@@ -64,6 +66,8 @@ xTurDelBtn.map((el, index) => {
             await fetch(`/xarici-turlar/${el.dataset.id}`, {
                 method: 'DELETE'
             })
+        } else {
+            e.preventDefault()
         }
     })
 });
