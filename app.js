@@ -111,11 +111,16 @@ const checkAdminAuth = (req, res, next) => {
     }
 };
 
-app.get('/admin', checkAdminAuth, async (req, res) => {
+app.get('/admin', async (req, res) => {
     const daxiliTurlar = await DaxiliTur.find();
     const xariciTurlar = await XariciTur.find();
     const employees = await Employee.find();
-    res.render('admin', { daxiliTurlar, xariciTurlar, employees })
+    if (req.session.adminID) {
+        res.render('admin', { daxiliTurlar, xariciTurlar, employees })
+    } else {
+        res.redirect('/login')
+    }
+
 })
 
 
