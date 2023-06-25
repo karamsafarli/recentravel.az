@@ -19,18 +19,18 @@ mongoose.connect(process.env.MONGODB_URI.toString(), { useNewUrlParser: true, us
     }))
     .catch((err) => console.log(err))
 
-app.use('/css', express.static('../css'));
-app.use('/js', express.static('../js'))
-app.use('/vendors', express.static('../vendors'));
+app.use('/css', express.static('./css'));
+app.use('/js', express.static('./js'))
+app.use('/vendors', express.static('./vendors'));
 app.use('/images', express.static('./images'));
-app.use('/photo', express.static('../photo'));
+app.use('/photo', express.static('./photo'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 app.use(session({
-    secret: 'your-secret-key',
+    secret: 'recentravelwebapp',
     resave: false,
     saveUninitialized: false,
     cookie: {
