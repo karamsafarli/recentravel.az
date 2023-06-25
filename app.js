@@ -266,7 +266,7 @@ app.get('/about', async (req, res) => {
 // });
 
 
-app.post('/about', upload.single('image'), async (req, res) => {
+app.post('/about', upload2.single('image'), async (req, res) => {
     const { name, job, description } = req.body;
     const img = req.file.path;
     cloudinary.uploader.upload(img, { secure: true }, async (err, result) => {
