@@ -12,6 +12,7 @@ const Images = require('./models/images');
 const Employee = require('./models/employee');
 const cloudinary = require('./cloudinary');
 const MongoDBStore = require('connect-mongodb-session')(session);
+const cookieParser = require('cookie-parser');
 
 
 
@@ -32,6 +33,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser())
 
 const store = new MongoDBStore({
     uri: process.env.MONGODB_URI.toString(),
@@ -111,7 +113,8 @@ app.get('/login', (req, res) => {
 
 app.post('/login', (req, res) => {
     if (req.body.username === process.env.ADMIN_USERNAME.toString() && req.body.password === process.env.ADMIN_PASSWORD.toString()) {
-        req.session.isAdminAuthenticated = true;
+        const expirationDate = new Date(Date.now() +  24 * 60 * 60 * 1000); 
+        res.cookie('adminAuth', 'true', { expires: expirationDate, httpOnly: true });
         res.redirect('/admin')
     } else {
         res.redirect('/login')
@@ -119,7 +122,7 @@ app.post('/login', (req, res) => {
 })
 
 const checkAdminAuth = (req, res, next) => {
-    if (req.session.isAdminAuthenticated) {
+    if (req.cookies.adminAuth === 'true') {
         next();
     } else {
         res.redirect('/login');
