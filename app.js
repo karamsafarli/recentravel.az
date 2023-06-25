@@ -14,7 +14,7 @@ const Employee = require('./models/employee');
 
 
 mongoose.connect(process.env.MONGODB_URI.toString(), { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(process.env.PORT || 3000, async () => {
+    .then(() => app.listen(3000, async () => {
         console.log('App is listening on port 3000')
     }))
     .catch((err) => console.log(err))
