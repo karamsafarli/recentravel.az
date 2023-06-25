@@ -1,0 +1,321 @@
+.header {
+  background-color: #f2f2f2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px;
+  height: 100px;
+}
+
+.header .logo img {
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.header .phone {
+  margin-right: 5%;
+}
+
+.header .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 15%;
+  margin-top: 1%;
+}
+
+.header .nav .nav-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
+
+.header .nav .nav-list .nav-item {
+  margin-left: 20px;
+}
+
+.header .nav .nav-list .nav-item a {
+  text-decoration: none;
+  color: #333;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.header .nav .nav-list .nav-item a:hover {
+  color: #555;
+}
+
+.header .burger-menu {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.header .burger-menu .bar {
+  width: 100%;
+  height: 4px;
+  background-color: #333;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .header .phone {
+    display: none;
+  }
+  .header .nav {
+    display: none;
+  }
+  .header .nav.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    position: absolute;
+    top: 60px;
+    width: 96%;
+    padding: 20px;
+  }
+  .header .nav.active .nav-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .header .nav.active .nav-list .nav-item {
+    margin: 10px 0;
+  }
+  .header .burger-menu {
+    display: block;
+    background-color: none;
+  }
+}
+
+@media (max-width: 1025px) {
+  .header .phone {
+    display: none;
+  }
+}
+
+.daxilitur h1 {
+  text-align: center;
+}
+
+.daxilitur img {
+  width: 300px;
+  height: 300px;
+  margin-left: 18%;
+  border-radius: 10px;
+  margin-top: 5%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.daxilitur .img-m {
+  margin-left: 18%;
+  margin-top: 3%;
+}
+
+.daxilitur .img-m h4 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.daxilitur .img-m span {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.daxilitur .img-m h3 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.daxilitur .img-m i {
+  color: rgba(206, 206, 2, 0.973);
+}
+
+@media (max-width: 768px) {
+  .daxilitur img {
+    width: 200px;
+  }
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.footer .left-section {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer .left-section .logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.footer .left-section .logo img {
+  width: 150px;
+  height: 70px;
+  border-radius: 30px;
+}
+
+.footer .left-section h4 {
+  display: block;
+  margin-top: 10px;
+}
+
+.footer .left-section .quote {
+  font-size: 14px;
+  color: #666;
+}
+
+.footer .middle-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer .middle-section .map {
+  width: 600px;
+  height: 150px;
+  background-color: #ddd;
+}
+
+.footer .middle-section .map iframe {
+  height: 150px;
+}
+
+.footer .right-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.footer .right-section .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.footer .right-section .icons .icon {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer .right-section .icons .icon a {
+  display: block;
+  text-decoration: none;
+  color: #7c7c7c;
+  font-size: 25px;
+}
+
+.footer .right-section .icons .icon a:hover {
+  color: #6997ec;
+}
+
+@media (max-width: 768px) {
+  .footer .middle-section .map {
+    width: 150px;
+  }
+  .footer .middle-section .map iframe {
+    width: 150px;
+    height: 150px;
+  }
+  .footer .right-section {
+    display: none;
+  }
+}
+
+@media (max-width: 1025px) {
+  .footer .middle-section .map {
+    width: 200px;
+  }
+  .footer .middle-section .map iframe {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+#sabitIkon {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 9999;
+  cursor: pointer;
+}
+
+#sabitIkon i {
+  font-size: 40px;
+  color: green;
+}
+
+#sabitIkon .altIkonlar {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 120px;
+}
+
+#sabitIkon .altIkonlar li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+#sabitIkon .altIkonlar li a {
+  font-size: 15px;
+  font-weight: 600;
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
+#sabitIkon .altIkonlar li a i {
+  font-size: 15px;
+}
+
+#sabitIkon.aktif .altIkonlar {
+  display: block;
+}
+/*# sourceMappingURL=XariciTur.css.map */

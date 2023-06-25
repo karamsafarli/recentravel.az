@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/DaxiliTur.css">
+    <link rel="stylesheet" href="/css/XariciTur.css">
+    <link rel="stylesheet" href="/css/haqiqimizda.css">
+    <link rel="stylesheet" href="/vendors/css/bootstrap.css">
+</head>
+
+<body>
+    <section class="admin_panel">
+        <div class="daxili_turlar">
+            <div class="container">
+                <h1>Daxili turlar</h1>
+                <form action="/daxili-turlar" method="post" class="dtur_form">
+                    <label for="dturseher">Səyahət ediləcək şəhər</label>
+                    <br>
+                    <input type="text" name="dturseher" class="dtur_city">
+                    <br><br>
+                    <label for="dturtitle">Başlıq</label>
+                    <br>
+                    <input type="text" name="dturtitle" class="dtur_title">
+                    <br><br>
+                    <label for="dturimage">Şəkil əlavə edin</label>
+                    <br>
+                    <input type="file" name="dturimage" class="dtur_file_input">
+                    <br><br>
+                    <label for="dturprice">Bilet qiyməti</label>
+                    <br>
+                    <input type="text" name="dturprice" class="dtur_price">
+
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+            <br>
+            <div class="daxilitur">
+                <div class="container">
+                    <div class="row dtur_container">
+                        <% daxiliTurlar.map((el)=> { %>
+                            <div class="col-lg-4 col-6 col-md-6">
+                                <img src="<%= el.imagePath %>" alt="">
+                                <% %>
+                                    <div class="img-m">
+                                        <h4>
+                                            <%= el.cityName %>
+                                        </h4>
+                                        <span>
+                                            <%= el.title %>
+                                        </span>
+                                        <h3>
+                                            <%= el.price %>
+                                                Azn
+                                        </h3>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <form>
+
+                                        <button class="btn btn-danger dtur-delbtn"
+                                            data-id="<%= el._id %>">Delete</button>
+                            </div>
+                            <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br><hr><br><br>
+
+        <div class="xarici_turlar">
+            <div class="container">
+                <h1>Xarici turlar</h1>
+                <form action="/xarici-turlar" method="post">
+                    <label for="xturseher">Səyahət ediləcək şəhər</label>
+                    <br>
+                    <input type="text" name="xturseher" class="xtur_city">
+                    <br><br>
+                    <label for="xturtitle">Başlıq</label>
+                    <br>
+                    <input type="text" name="xturtitle" class="xtur_title">
+                    <br><br>
+                    <label for="xturimage">Şəkil əlavə edin</label>
+                    <br>
+                    <input type="file" name="xturimage" class="xtur_file_input">
+                    <br><br>
+                    <label for="xturprice">Bilet qiyməti</label>
+                    <br>
+                    <input type="text" name="xturprice" class="xtur_price">
+
+                    <button type="submit" class="xarici_form btn btn-primary">Add</button>
+                </form>
+            </div>
+            <br>
+            <div class="daxilitur">
+                <div class="container">
+                    <div class="row dtur_container">
+                        <% xariciTurlar.map((el)=> { %>
+                            <div class="col-lg-4 col-6 col-md-6">
+                                <img src="<%= el.imagePath %>" alt="">
+                                <% %>
+                                    <div class="img-m">
+                                        <h4>
+                                            <%= el.cityName %>
+                                        </h4>
+                                        <span>
+                                            <%= el.title %>
+                                        </span>
+                                        <h3>
+                                            <%= el.price %>
+                                                Azn
+                                        </h3>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <form>
+
+                                        <button class="btn btn-danger xtur-delbtn"
+                                            data-id="<%= el._id %>">Delete</button>
+                            </div>
+                            <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><hr><br><br>
+
+        <div class="modify_images">
+            <div class="container">
+                <h1>Modify images</h1>
+                <div class="row g-5">
+                    <div class="col-lg-4">
+                        <form action="" class="bg_form">
+                            <label for="bgimg">Background image</label>
+                            <br>
+                            <input type="file" name="bgimg" class="bgimg mb-2">
+                            <br>
+                            <button type="submit" class="bg_form_btn btn btn-primary">Change</button>
+                        </form>
+                    </div>
+
+
+
+                    <div class="col-lg-4">
+                        <form action="">
+                            <label for="">Image 1 text</label>
+                            <br>
+                            <input type="text" placeholder="description" name="img1_text" class="text1 mb-2">
+                            <br>
+                            <input type="file" name="img1_file" class="img1 mb-2">
+                            <br>
+                            <button type="submit" class="img1_form_btn btn btn-primary">Change</button>
+                        </form>
+                    </div>
+
+
+                    <div class="col-lg-4">
+                        <form action="">
+                            <label for="">Image 2 text</label>
+                            <br>
+                            <input type="text" placeholder="description" name="img2_text" class="text2 mb-2">
+                            <br>
+                            <input type="file" name="img2_file" class="img2 mb-2">
+                            <br>
+                            <button type="submit" class="img2_form_btn btn btn-primary">Change</button>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-4 test123">
+                        <form action="">
+                            <label for="">Image 3 text</label>
+                            <br>
+                            <input type="text" placeholder="description" name="img3_text" class="text3 mb-2">
+                            <br>
+                            <input type="file" name="img3_file" class="img3 mb-2">
+                            <br>
+                            <button type="submit" class="img3_form_btn btn btn-primary">Change</button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <br><br><br><br>
+            </div>
+
+        </div>
+        <hr>
+        <br>
+
+        <div class="haqqimizda mb-5">
+            <h1 class="mb-4">İşçi əlavə et</h1>
+            <div class="employee_container container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <form>
+                            <label for="">Ad, Soyad</label>
+                            <br>
+                            <input type="text" class="emp_name">
+                            <br><br>
+
+                            <label for="">İş sahəsi</label>
+                            <br>
+                            <input type="text" class="emp_job">
+                            <br><br>
+
+                            <label for="">Haqqında</label>
+                            <br>
+                            <textarea cols="30" rows="10" class="emp_about"></textarea>
+                            <br><br>
+                            <input type="file" class="emp_img">
+                            <br>
+                            <button type="submit" class="btn btn-primary mt-2">Əlavə et</button>
+                        </form>
+                    </div>
+                    <% employees.reverse().map((el)=> { %>
+                        <div class="col-lg-4">
+
+                            <img src="<%= el.photo %>" alt="">
+                            <div class="haqqimizda-m">
+                                <h2>
+                                    <%= el.name %>
+                                </h2>
+                                <h3>
+                                    <%= el.job %>
+                                </h3>
+
+                                <span>
+                                    <%= el.description %>
+                                </span>
+                                <br><br>
+                                <button data-id="<%= el._id %>" class="btn btn-danger emp_delbtn">Delete</button>
+                            </div>
+
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="/js/admin.js"></script>
+</body>
+
+</html>
