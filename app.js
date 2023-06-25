@@ -31,11 +31,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 app.use(session({
-    secret: 'recentravelwebapp',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
-        expires: false
+        expires: new Date(Date.now() + 5 * 60 * 1000)
     }
 }));
 
@@ -57,6 +57,19 @@ const storage2 = multer.diskStorage({
 const upload2 = multer({ storage: storage2 })
 
 const upload = multer({ storage: storage });
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Home.html'));
+});
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, '_haqqimizda.html'));
+});
+app.get('/daxilitur', (req, res) => {
+    res.sendFile(path.join(__dirname, '_DaxiliTur.html'));
+});
+app.get('/xaricitur', (req, res) => {
+    res.sendFile(path.join(__dirname, '_XariciTur.html'));
+});
 
 app.get('/daxili-turlar', async (req, res) => {
     try {
