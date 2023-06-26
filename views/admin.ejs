@@ -15,7 +15,9 @@
     <section class="admin_panel">
         <div class="daxili_turlar">
             <div class="container">
-                <a href="/" class="mb-4">Ana səhifəyə qayıt</a>
+                <div class="d-flex justify-content-between"><a href="/" class="mb-4">Ana səhifəyə qayıt</a>
+                    <a href="/logout">Hesabdan çıxış</a>
+                </div>
                 <h1>Daxili turlar</h1>
                 <form action="/daxili-turlar" method="post" class="dtur_form">
                     <label for="dturseher">Səyahət ediləcək şəhər</label>
@@ -24,7 +26,8 @@
                     <br><br>
                     <label for="dturtitle">Başlıq</label>
                     <br>
-                    <input type="text" name="dturtitle" class="dtur_title">
+                    <!-- <input type="text" name="dturtitle" class="dtur_title"> -->
+                    <textarea name="dturtitle" class="dtur_title" cols="30" rows="10"></textarea>
                     <br><br>
                     <label for="dturimage">Şəkil əlavə edin</label>
                     <br>
@@ -33,39 +36,38 @@
                     <label for="dturprice">Bilet qiyməti</label>
                     <br>
                     <input type="text" name="dturprice" class="dtur_price">
-
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <br>
+                    <button type="submit" class="btn btn-primary mt-2">Add</button>
                 </form>
             </div>
             <br>
             <div class="daxilitur">
                 <div class="container">
-                    <div class="row dtur_container">
+                    <div class="row dtur_container g-5">
                         <% daxiliTurlar.map((el)=> { %>
                             <div class="col-lg-4 col-6 col-md-6">
                                 <img src="<%= el.imagePath %>" alt="">
-                                <% %>
-                                    <div class="img-m">
-                                        <h4>
-                                            <%= el.cityName %>
-                                        </h4>
-                                        <span>
-                                            <%= el.title %>
-                                        </span>
-                                        <h3>
-                                            <%= el.price %>
-                                                Azn
-                                        </h3>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <form>
 
-                                        <button class="btn btn-danger dtur-delbtn"
-                                            data-id="<%= el._id %>">Delete</button>
+                                <div class="img-m">
+                                    <h4>
+                                        <%= el.cityName %>
+                                    </h4>
+                                    <span>
+                                        <%= el.title %>
+                                    </span>
+                                    <h3>
+                                        <%= el.price %>
+                                            Azn
+                                    </h3>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+
+                                    <button class="btn btn-danger dtur-delbtn mt-2"
+                                        data-id="<%= el._id %>">Delete</button>
+                                </div>
                             </div>
                             <% }) %>
                     </div>
@@ -73,7 +75,8 @@
             </div>
         </div>
 
-        <br><br><hr><br><br>
+        <br><br>
+        <hr><br><br>
 
         <div class="xarici_turlar">
             <div class="container">
@@ -85,7 +88,8 @@
                     <br><br>
                     <label for="xturtitle">Başlıq</label>
                     <br>
-                    <input type="text" name="xturtitle" class="xtur_title">
+                    <!-- <input type="text" name="xturtitle" class="xtur_title"> -->
+                    <textarea name="xturtitle" class="xtur_title" cols="30" rows="10"></textarea>
                     <br><br>
                     <label for="xturimage">Şəkil əlavə edin</label>
                     <br>
@@ -94,14 +98,14 @@
                     <label for="xturprice">Bilet qiyməti</label>
                     <br>
                     <input type="text" name="xturprice" class="xtur_price">
-
-                    <button type="submit" class="xarici_form btn btn-primary">Add</button>
+                    <br>
+                    <button type="submit" class="xarici_form btn btn-primary mt-2">Add</button>
                 </form>
             </div>
             <br>
             <div class="daxilitur">
                 <div class="container">
-                    <div class="row dtur_container">
+                    <div class="row dtur_container g-5">
                         <% xariciTurlar.map((el)=> { %>
                             <div class="col-lg-4 col-6 col-md-6">
                                 <img src="<%= el.imagePath %>" alt="">
@@ -122,18 +126,17 @@
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <form>
-
-                                        <button class="btn btn-danger xtur-delbtn"
+                                        <button class="btn btn-danger xtur-delbtn mt-2"
                                             data-id="<%= el._id %>">Delete</button>
+                                    </div>
                             </div>
                             <% }) %>
                     </div>
                 </div>
             </div>
         </div>
-        <br><br><hr><br><br>
+        <br><br>
+        <hr><br><br>
 
         <div class="modify_images">
             <div class="container">

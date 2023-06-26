@@ -1,10 +1,9 @@
 const dturForm = document.querySelector('.dtur_form');
 dturForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
     const dturFileInput = document.querySelector('.dtur_file_input')
     const dturFile = dturFileInput.files[0]
     const dTurFormData = new FormData();
-    
+
     const dturCity = document.querySelector('.dtur_city').value;
     const dturTitle = document.querySelector('.dtur_title').value;
     const dturPrice = document.querySelector('.dtur_price').value;
@@ -23,7 +22,6 @@ dturForm.addEventListener('submit', async (e) => {
 
 const xturForm = document.querySelector('.xarici_form');
 xturForm.addEventListener('click', async (e) => {
-    e.preventDefault();
     const xturFileInput = document.querySelector('.xtur_file_input')
     const xturFile = xturFileInput.files[0]
     const xTurFormData = new FormData();
@@ -74,7 +72,6 @@ xTurDelBtn.map((el, index) => {
 
 const bgFormbtn = document.querySelector('.bg_form_btn');
 bgFormbtn.addEventListener('click', async (e) => {
-    e.preventDefault();
     const bgImg = document.querySelector('.bgimg').files[0]
     const formData = new FormData();
     formData.append('image', bgImg)
@@ -90,7 +87,6 @@ bgFormbtn.addEventListener('click', async (e) => {
 
 const img1FormBtn = document.querySelector('.img1_form_btn');
 img1FormBtn.addEventListener('click', async (e) => {
-    e.preventDefault();
     const img = document.querySelector('.img1').files[0];
     const text = document.querySelector('.text1').value;
     const formData = new FormData();
@@ -110,7 +106,6 @@ img1FormBtn.addEventListener('click', async (e) => {
 
 const img2FormBtn = document.querySelector('.img2_form_btn');
 img2FormBtn.addEventListener('click', async (e) => {
-    e.preventDefault();
     const img = document.querySelector('.img2').files[0];
     const text = document.querySelector('.text2').value;
     const formData = new FormData();
@@ -130,7 +125,6 @@ img2FormBtn.addEventListener('click', async (e) => {
 
 const img3FormBtn = document.querySelector('.img3_form_btn');
 img3FormBtn.addEventListener('click', async (e) => {
-    e.preventDefault();
     const img = document.querySelector('.img3').files[0];
     const text = document.querySelector('.text3').value;
     const formData = new FormData();

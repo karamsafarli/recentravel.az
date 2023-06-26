@@ -4,14 +4,15 @@ const DaxiliTur = require('./models/daxilitur');
 const XariciTur = require('./models/xaricitur');
 const app = express();
 const mongoose = require('mongoose');
-const session = require('express-session');
+//const session = require('express-session');
 const path = require('path');
 const multer = require('multer');
 const cors = require('cors');
 const Images = require('./models/images');
 const Employee = require('./models/employee');
+const Profile = require('./models/profile');
 const cloudinary = require('./cloudinary');
-const MongoDBStore = require('connect-mongodb-session')(session);
+//const MongoDBStore = require('connect-mongodb-session')(session);
 const cookieParser = require('cookie-parser');
 
 
@@ -35,34 +36,34 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser())
 
-const store = new MongoDBStore({
-    uri: process.env.MONGODB_URI.toString(),
-    collection: 'sessions',
-});
+// const store = new MongoDBStore({
+//     uri: process.env.MONGODB_URI.toString(),
+//     collection: 'sessions',
+// });
 
-store.on('error', (error) => {
-    console.error('Session store error:', error);
-});
+// store.on('error', (error) => {
+//     console.error('Session store error:', error);
+// });
 
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    store: store,
-    cookie: {
-        secure: true,
-        maxAge: 1000 * 60 * 60 * 24,
-    },
-}));
+// app.use(session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: true,
+//     store: store,
+//     cookie: {
+//         secure: true,
+//         maxAge: 1000 * 60 * 60 * 24,
+//     },
+// }));
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, './images')
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + '--' + file.originalname)
-    }
-});
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, './images')
+//     },
+//     filename: (req, file, cb) => {
+//         cb(null, Date.now() + '--' + file.originalname)
+//     }
+// });
 
 const storage2 = multer.diskStorage({
     filename: (req, file, cb) => {
@@ -72,7 +73,7 @@ const storage2 = multer.diskStorage({
 
 const upload2 = multer({ storage: storage2 })
 
-const upload = multer({ storage: storage });
+//const upload = multer({ storage: storage });
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'Home.html'));
@@ -107,17 +108,46 @@ app.get('/xarici-turlar', async (req, res) => {
 
 });
 
+app.get('/register', (req, res) => {
+    res.render('register')
+});
+
+app.get('/logout', (req, res) => {
+    res.clearCookie('adminAuth');
+    res.redirect('/login')
+})
+
+app.post('/register', async (req, res) => {
+    const { username, email, password } = req.body;
+    try {
+        const profile = new Profile({
+            username,
+            email,
+            password
+        });
+        await profile.save();
+        res.redirect('/login')
+    } catch (error) {
+        res.status(500).send('Could not register');
+    }
+})
+
 app.get('/login', (req, res) => {
     res.render('login')
 });
 
-app.post('/login', (req, res) => {
-    if (req.body.username === process.env.ADMIN_USERNAME.toString() && req.body.password === process.env.ADMIN_PASSWORD.toString()) {
-        const expirationDate = new Date(Date.now() +  24 * 60 * 60 * 1000); 
-        res.cookie('adminAuth', 'true', { expires: expirationDate, httpOnly: true });
-        res.redirect('/admin')
-    } else {
-        res.redirect('/login')
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body
+    try {
+        const profile = await Profile.findOne({ email: email });
+        if (profile.password === password) {
+            res.cookie('adminAuth', 'true', { httpOnly: true });
+            res.redirect('/admin')
+        } else {
+            res.status(403).send('Email və ya şifrə yanlışdır');
+        }
+    } catch (error) {
+        res.status(404).send('User not found')
     }
 })
 

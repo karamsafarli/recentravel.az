@@ -5,21 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/vendors/css/bootstrap.css">
 </head>
 
-<body>
-    <section class="login_page">
+<body class="d-flex justify-content-center align-items-center">
+    <section class="login_page mt-5">
         <div class="login">
             <form action="/login" method="post">
-                <label for="">Username</label>
+                <label for="">Email:</label>
                 <br>
-                <input type="text" name="username">
+                <input type="email" name="email" required>
                 <br><br>
-                <label for="">Password</label>
+                <label for="">Şifrə:</label>
                 <br>
-                <input type="password" name="password">
+                <input type="password" name="password" required>
                 <br>
-                <button type="submit">SUBMIT</button>
+                <button type="submit" class="btn btn-primary mt-3">Daxil ol</button>
+                <h6 class="mt-2">Hesabınız yoxdur? <a href="/register">Qeydiyyatdan keç</a></h6>
             </form>
         </div>
     </section>
