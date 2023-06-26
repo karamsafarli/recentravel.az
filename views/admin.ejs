@@ -19,7 +19,7 @@
                     <a href="/logout">Hesabdan çıxış</a>
                 </div>
                 <h1>Daxili turlar</h1>
-                <form action="/daxili-turlar" method="post" class="dtur_form">
+                <form class="dtur_form">
                     <label for="dturseher">Səyahət ediləcək şəhər</label>
                     <br>
                     <input type="text" name="dturseher" class="dtur_city">
@@ -44,7 +44,7 @@
             <div class="daxilitur">
                 <div class="container">
                     <div class="row dtur_container g-5">
-                        <% daxiliTurlar.map((el)=> { %>
+                        <% daxiliTurlar.reverse().map((el)=> { %>
                             <div class="col-lg-4 col-6 col-md-6">
                                 <img src="<%= el.imagePath %>" alt="">
 
@@ -81,7 +81,7 @@
         <div class="xarici_turlar">
             <div class="container">
                 <h1>Xarici turlar</h1>
-                <form action="/xarici-turlar" method="post">
+                <form>
                     <label for="xturseher">Səyahət ediləcək şəhər</label>
                     <br>
                     <input type="text" name="xturseher" class="xtur_city">
@@ -106,7 +106,7 @@
             <div class="daxilitur">
                 <div class="container">
                     <div class="row dtur_container g-5">
-                        <% xariciTurlar.map((el)=> { %>
+                        <% xariciTurlar.reverse().map((el)=> { %>
                             <div class="col-lg-4 col-6 col-md-6">
                                 <img src="<%= el.imagePath %>" alt="">
                                 <% %>

@@ -167,26 +167,34 @@ app.get('/admin', checkAdminAuth, async (req, res) => {
     res.render('admin', { daxiliTurlar, xariciTurlar, employees })
 })
 
+app.get('/admin/refresh', checkAdminAuth, async (req, res) => {
+    const daxiliTurlar = await DaxiliTur.find();
+    const xariciTurlar = await XariciTur.find();
+    const employees = await Employee.find();
+
+    res.render('admin', { daxiliTurlar, xariciTurlar, employees });
+});
 
 app.post('/daxili-turlar', upload2.single('image'), async (req, res) => {
     const { city, title, price } = req.body;
     const imgPath = req.file.path;
+    console.log(req.body)
+    try {
+        const result = await cloudinary.uploader.upload(imgPath, { secure: true });
+        console.log(result)
+        const newCard = new DaxiliTur({
+            cityName: city,
+            title: title,
+            imagePath: result.secure_url,
+            price: price
+        });
 
-    cloudinary.uploader.upload(imgPath, { secure: true }, async (err, result) => {
-        try {
-            const newCard = new DaxiliTur({
-                cityName: city,
-                title: title,
-                imagePath: result.secure_url,
-                price: price
-            });
+        await newCard.save();
 
-            await newCard.save();
-            res.status(201).redirect('/admin')
-        } catch (error) {
-            res.status(500).redirect('/admin')
-        }
-    })
+        res.status(201).redirect('/admin');
+    } catch (error) {
+        res.status(500).redirect('/admin')
+    }
 });
 
 app.delete('/daxili-turlar/:id', async (req, res) => {
@@ -214,21 +222,20 @@ app.delete('/xarici-turlar/:id', async (req, res) => {
 app.post('/xarici-turlar', upload2.single('image'), async (req, res) => {
     const { city, title, price } = req.body;
     const imgPath = req.file.path;
-    cloudinary.uploader.upload(imgPath, { secure: true }, async (err, result) => {
-        try {
-            const newCard = new XariciTur({
-                cityName: city,
-                title: title,
-                imagePath: result.secure_url,
-                price: price
-            });
+    try {
+        const result = await cloudinary.uploader.upload(imgPath, { secure: true });
+        const newCard = new XariciTur({
+            cityName: city,
+            title: title,
+            imagePath: result.secure_url,
+            price: price
+        });
 
-            await newCard.save();
-            res.status(201).redirect('/admin')
-        } catch (error) {
-            res.status(500).redirect('/admin')
-        }
-    })
+        await newCard.save();
+        res.status(201).redirect('/admin');
+    } catch (error) {
+        res.status(500).redirect('/admin')
+    }
 });
 
 

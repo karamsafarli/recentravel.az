@@ -9,14 +9,14 @@ dturForm.addEventListener('submit', async (e) => {
     const dturPrice = document.querySelector('.dtur_price').value;
     dTurFormData.append('city', dturCity);
     dTurFormData.append('title', dturTitle);
-    dTurFormData.append('image', dturFile);
     dTurFormData.append('price', dturPrice);
+    dTurFormData.append('image', dturFile);
     dTurFormData.append('imagePath', dturFile.name);
 
     const res = await fetch('/daxili-turlar', {
         method: 'POST',
         body: dTurFormData,
-    })
+    });
 });
 
 
@@ -31,8 +31,8 @@ xturForm.addEventListener('click', async (e) => {
     const xturPrice = document.querySelector('.xtur_price').value;
     xTurFormData.append('city', xturCity);
     xTurFormData.append('title', xturTitle);
-    xTurFormData.append('image', xturFile);
     xTurFormData.append('price', xturPrice);
+    xTurFormData.append('image', xturFile);
     xTurFormData.append('imagePath', xturFile.name);
 
     const res = await fetch('/xarici-turlar', {
