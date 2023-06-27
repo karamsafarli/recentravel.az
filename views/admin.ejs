@@ -19,31 +19,34 @@
                     <a href="/logout">Hesabdan çıxış</a>
                 </div>
                 <h1>Daxili turlar</h1>
-                <form class="dtur_form">
-                    <label for="dturseher">Səyahət ediləcək şəhər</label>
-                    <br>
-                    <input type="text" name="dturseher" class="dtur_city">
-                    <br><br>
-                    <label for="dturtitle">Başlıq</label>
-                    <br>
-                    <!-- <input type="text" name="dturtitle" class="dtur_title"> -->
-                    <textarea name="dturtitle" class="dtur_title" cols="30" rows="10"></textarea>
-                    <br><br>
-                    <label for="dturimage">Şəkil əlavə edin</label>
-                    <br>
-                    <input type="file" name="dturimage" class="dtur_file_input">
-                    <br><br>
-                    <label for="dturprice">Bilet qiyməti</label>
-                    <br>
-                    <input type="text" name="dturprice" class="dtur_price">
-                    <br>
-                    <button type="submit" class="btn btn-primary mt-2">Add</button>
-                </form>
+
             </div>
             <br>
             <div class="daxilitur">
                 <div class="container">
                     <div class="row dtur_container g-5">
+                        <div class="col-lg-4 col-6 col-md-6">
+                            <form class="dtur_form" class="dtur_form" action="/daxili-turlar" method="post"
+                                enctype="multipart/form-data">
+                                <label for="dturseher">Səyahət ediləcək şəhər</label>
+                                <br>
+                                <input type="text" name="dturseher" class="dtur_city">
+                                <br><br>
+                                <label for="dturtitle">Başlıq</label>
+                                <br>
+                                <textarea name="dturtitle" class="dtur_title" cols="30" rows="10"></textarea>
+                                <br><br>
+                                <label for="dturimage">Şəkil əlavə edin</label>
+                                <br>
+                                <input type="file" name="image" class="dtur_file_input">
+                                <br><br>
+                                <label for="dturprice">Bilet qiyməti</label>
+                                <br>
+                                <input type="text" name="dturprice" class="dtur_price">
+                                <br>
+                                <button type="submit" class="btn btn-primary mt-2">Add</button>
+                            </form>
+                        </div>
                         <% daxiliTurlar.reverse().map((el)=> { %>
                             <div class="col-lg-4 col-6 col-md-6">
                                 <img src="<%= el.imagePath %>" alt="">
@@ -65,8 +68,10 @@
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
 
-                                    <button class="btn btn-danger dtur-delbtn mt-2"
-                                        data-id="<%= el._id %>">Delete</button>
+                                    <form action="">
+                                        <button class="btn btn-danger dtur-delbtn mt-2" data-id="<%= el._id %>"
+                                            type="submit">Delete</button>
+                                    </form>
                                 </div>
                             </div>
                             <% }) %>
@@ -80,32 +85,33 @@
 
         <div class="xarici_turlar">
             <div class="container">
-                <h1>Xarici turlar</h1>
-                <form>
-                    <label for="xturseher">Səyahət ediləcək şəhər</label>
-                    <br>
-                    <input type="text" name="xturseher" class="xtur_city">
-                    <br><br>
-                    <label for="xturtitle">Başlıq</label>
-                    <br>
-                    <!-- <input type="text" name="xturtitle" class="xtur_title"> -->
-                    <textarea name="xturtitle" class="xtur_title" cols="30" rows="10"></textarea>
-                    <br><br>
-                    <label for="xturimage">Şəkil əlavə edin</label>
-                    <br>
-                    <input type="file" name="xturimage" class="xtur_file_input">
-                    <br><br>
-                    <label for="xturprice">Bilet qiyməti</label>
-                    <br>
-                    <input type="text" name="xturprice" class="xtur_price">
-                    <br>
-                    <button type="submit" class="xarici_form btn btn-primary mt-2">Add</button>
-                </form>
+                <h1 class="mb-4">Xarici turlar</h1>
             </div>
-            <br>
+
             <div class="daxilitur">
                 <div class="container">
                     <div class="row dtur_container g-5">
+                        <div class="col-lg-4 col-6 col-md-6">
+                            <form action="/xarici-turlar" method="post" enctype="multipart/form-data">
+                                <label for="xturseher">Səyahət ediləcək şəhər</label>
+                                <br>
+                                <input type="text" name="xturseher" class="xtur_city">
+                                <br><br>
+                                <label for="xturtitle">Başlıq</label>
+                                <br>
+                                <textarea name="xturtitle" class="xtur_title" cols="30" rows="10"></textarea>
+                                <br><br>
+                                <label for="xturimage">Şəkil əlavə edin</label>
+                                <br>
+                                <input type="file" name="image" class="xtur_file_input">
+                                <br><br>
+                                <label for="xturprice">Bilet qiyməti</label>
+                                <br>
+                                <input type="text" name="xturprice" class="xtur_price">
+                                <br>
+                                <button type="submit" class="xarici_form btn btn-primary mt-2">Add</button>
+                            </form>
+                        </div>
                         <% xariciTurlar.reverse().map((el)=> { %>
                             <div class="col-lg-4 col-6 col-md-6">
                                 <img src="<%= el.imagePath %>" alt="">
@@ -126,8 +132,10 @@
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
-                                        <button class="btn btn-danger xtur-delbtn mt-2"
-                                            data-id="<%= el._id %>">Delete</button>
+                                        <form action="">
+                                            <button class="btn btn-danger xtur-delbtn mt-2" data-id="<%= el._id %>"
+                                                type="submit">Delete</button>
+                                        </form>
                                     </div>
                             </div>
                             <% }) %>
@@ -205,22 +213,22 @@
             <div class="employee_container container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <form>
+                        <form method="post" action="/about" enctype="multipart/form-data">
                             <label for="">Ad, Soyad</label>
                             <br>
-                            <input type="text" class="emp_name">
+                            <input type="text" name="name" class="emp_name">
                             <br><br>
 
                             <label for="">İş sahəsi</label>
                             <br>
-                            <input type="text" class="emp_job">
+                            <input type="text" name="job" class="emp_job">
                             <br><br>
 
                             <label for="">Haqqında</label>
                             <br>
-                            <textarea cols="30" rows="10" class="emp_about"></textarea>
+                            <textarea cols="30" rows="10" name="description" class="emp_about"></textarea>
                             <br><br>
-                            <input type="file" class="emp_img">
+                            <input type="file" name="image" class="emp_img">
                             <br>
                             <button type="submit" class="btn btn-primary mt-2">Əlavə et</button>
                         </form>
@@ -241,7 +249,10 @@
                                     <%= el.description %>
                                 </span>
                                 <br><br>
-                                <button data-id="<%= el._id %>" class="btn btn-danger emp_delbtn">Delete</button>
+                                <form>
+                                    <button data-id="<%= el._id %>" class="btn btn-danger emp_delbtn"
+                                        type="submit">Delete</button>
+                                </form>
                             </div>
 
                         </div>
@@ -251,6 +262,8 @@
         </div>
     </section>
 
+
+    <div class="testdiv"></div>
 
 
     <script src="/js/admin.js"></script>

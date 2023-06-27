@@ -1,45 +1,56 @@
-const dturForm = document.querySelector('.dtur_form');
-dturForm.addEventListener('submit', async (e) => {
-    const dturFileInput = document.querySelector('.dtur_file_input')
-    const dturFile = dturFileInput.files[0]
-    const dTurFormData = new FormData();
-
-    const dturCity = document.querySelector('.dtur_city').value;
-    const dturTitle = document.querySelector('.dtur_title').value;
-    const dturPrice = document.querySelector('.dtur_price').value;
-    dTurFormData.append('city', dturCity);
-    dTurFormData.append('title', dturTitle);
-    dTurFormData.append('price', dturPrice);
-    dTurFormData.append('image', dturFile);
-    dTurFormData.append('imagePath', dturFile.name);
-
-    const res = await fetch('/daxili-turlar', {
-        method: 'POST',
-        body: dTurFormData,
-    });
-});
 
 
-const xturForm = document.querySelector('.xarici_form');
-xturForm.addEventListener('click', async (e) => {
-    const xturFileInput = document.querySelector('.xtur_file_input')
-    const xturFile = xturFileInput.files[0]
-    const xTurFormData = new FormData();
+// const dturForm = document.querySelector('.dtur_form');
+// dturForm.addEventListener('submit', async (e) => {
+//     const dturFileInput = document.querySelector('.dtur_file_input')
+//     const dturFile = dturFileInput.files[0]
+//     const dTurFormData = new FormData();
 
-    const xturCity = document.querySelector('.xtur_city').value;
-    const xturTitle = document.querySelector('.xtur_title').value;
-    const xturPrice = document.querySelector('.xtur_price').value;
-    xTurFormData.append('city', xturCity);
-    xTurFormData.append('title', xturTitle);
-    xTurFormData.append('price', xturPrice);
-    xTurFormData.append('image', xturFile);
-    xTurFormData.append('imagePath', xturFile.name);
+//     const dturCity = document.querySelector('.dtur_city').value;
+//     const dturTitle = document.querySelector('.dtur_title').value;
+//     const dturPrice = document.querySelector('.dtur_price').value;
+//     dTurFormData.append('city', dturCity);
+//     dTurFormData.append('title', dturTitle);
+//     dTurFormData.append('price', dturPrice);
+//     dTurFormData.append('image', dturFile);
+//     dTurFormData.append('imagePath', dturFile.name);
 
-    const res = await fetch('/xarici-turlar', {
-        method: 'POST',
-        body: xTurFormData,
-    })
-})
+//     const res = await fetch('/daxili-turlar', {
+//         method: 'POST',
+//         body: dTurFormData,
+//     });
+
+//     if(res.ok) {
+//         fetchDaxilitur()
+//     }
+// });
+
+
+
+
+// const xturForm = document.querySelector('.xarici_form');
+// xturForm.addEventListener('click', async (e) => {
+//     const xturFileInput = document.querySelector('.xtur_file_input')
+//     const xturFile = xturFileInput.files[0]
+//     const xTurFormData = new FormData();
+
+//     const xturCity = document.querySelector('.xtur_city').value;
+//     const xturTitle = document.querySelector('.xtur_title').value;
+//     const xturPrice = document.querySelector('.xtur_price').value;
+//     xTurFormData.append('city', xturCity);
+//     xTurFormData.append('title', xturTitle);
+//     xTurFormData.append('price', xturPrice);
+//     xTurFormData.append('image', xturFile);
+//     xTurFormData.append('imagePath', xturFile.name);
+
+//     const res = await fetch('/xarici-turlar', {
+//         method: 'POST',
+//         body: xTurFormData,
+//     });
+//     if (res.ok) {
+//         fposts()
+//     }
+// })
 
 
 const dTurDelBtn = [...document.querySelectorAll('.dtur-delbtn')];
@@ -142,29 +153,28 @@ img3FormBtn.addEventListener('click', async (e) => {
 });
 
 
-const EmployeeForm = document.querySelector('.employee_container form');
+// const EmployeeForm = document.querySelector('.employee_container form');
+// EmployeeForm.addEventListener('submit', async () => {
+//     const name = document.querySelector('.emp_name').value;
+//     const job = document.querySelector('.emp_job').value;
+//     const description = document.querySelector('.emp_about').value;
+//     const img = document.querySelector('.emp_img').files[0];
 
-EmployeeForm.addEventListener('submit', async () => {
-    const name = document.querySelector('.emp_name').value;
-    const job = document.querySelector('.emp_job').value;
-    const description = document.querySelector('.emp_about').value;
-    const img = document.querySelector('.emp_img').files[0];
+//     const formData = new FormData();
+//     formData.append('name', name);
+//     formData.append('job', job);
+//     formData.append('description', description);
+//     formData.append('image', img);
 
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('job', job);
-    formData.append('description', description);
-    formData.append('image', img);
-
-    try {
-        const res = await fetch('/about', {
-            method: 'POST',
-            body: formData
-        })
-    } catch (error) {
-        console.log(error)
-    }
-});
+//     try {
+//         const res = await fetch('/about', {
+//             method: 'POST',
+//             body: formData
+//         })
+//     } catch (error) {
+//         console.log(error)
+//     }
+// });
 
 
 const employeeDelBtn = [...document.querySelectorAll('.emp_delbtn')];
@@ -184,3 +194,4 @@ employeeDelBtn.map((el) => {
         }
     })
 })
+

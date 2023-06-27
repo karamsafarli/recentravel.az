@@ -36,14 +36,6 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser())
 
-// const store = new MongoDBStore({
-//     uri: process.env.MONGODB_URI.toString(),
-//     collection: 'sessions',
-// });
-
-// store.on('error', (error) => {
-//     console.error('Session store error:', error);
-// });
 
 // app.use(session({
 //     secret: process.env.SESSION_SECRET,
@@ -164,6 +156,7 @@ app.get('/admin', checkAdminAuth, async (req, res) => {
     const xariciTurlar = await XariciTur.find();
     const employees = await Employee.find();
 
+
     res.render('admin', { daxiliTurlar, xariciTurlar, employees })
 })
 
@@ -176,21 +169,20 @@ app.get('/admin/refresh', checkAdminAuth, async (req, res) => {
 });
 
 app.post('/daxili-turlar', upload2.single('image'), async (req, res) => {
-    const { city, title, price } = req.body;
+
+    const { dturseher, dturtitle, dturprice } = req.body;
     const imgPath = req.file.path;
-    console.log(req.body)
     try {
         const result = await cloudinary.uploader.upload(imgPath, { secure: true });
-        console.log(result)
         const newCard = new DaxiliTur({
-            cityName: city,
-            title: title,
+            cityName: dturseher,
+            title: dturtitle,
             imagePath: result.secure_url,
-            price: price
+            price: dturprice
         });
 
         await newCard.save();
-
+       
         res.status(201).redirect('/admin');
     } catch (error) {
         res.status(500).redirect('/admin')
@@ -220,15 +212,15 @@ app.delete('/xarici-turlar/:id', async (req, res) => {
 });
 
 app.post('/xarici-turlar', upload2.single('image'), async (req, res) => {
-    const { city, title, price } = req.body;
+    const { xturseher, xturtitle, xturprice } = req.body;
     const imgPath = req.file.path;
     try {
         const result = await cloudinary.uploader.upload(imgPath, { secure: true });
         const newCard = new XariciTur({
-            cityName: city,
-            title: title,
+            cityName: xturseher,
+            title: xturtitle,
             imagePath: result.secure_url,
-            price: price
+            price: xturprice
         });
 
         await newCard.save();
@@ -339,7 +331,6 @@ app.post('/about', upload2.single('image'), async (req, res) => {
     const { name, job, description } = req.body;
     const img = req.file.path;
     cloudinary.uploader.upload(img, { secure: true }, async (err, result) => {
-        console.log(result.url)
         try {
             const employees = new Employee({
                 photo: result.secure_url,
