@@ -1,19 +1,11 @@
 .splide__pagination {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  align-items: center;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 0;
   pointer-events: none;
 }
-
 .splide__pagination li {
   display: inline-block;
   line-height: 1;
@@ -21,8 +13,6 @@
   margin: 0;
   pointer-events: auto;
 }
-
 .splide:not(.is-overflow) .splide__pagination {
   display: none;
-}
-/*# sourceMappingURL=pagination.css.map */
+}/*# sourceMappingURL=pagination.css.map */

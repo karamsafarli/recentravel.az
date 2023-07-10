@@ -56,9 +56,9 @@ const fetchImages = async () => {
   try {
     const res = await fetch('https://lively-bee-beanie.cyclic.app/header-images');
     const data = await res.json()
-    homeImg.setAttribute('src', `${data[0].headerBackground.path}`);
+    homeImg.src = data[0].headerBackground.path;
     data[0].smallImages.map((el, index) => {
-      smallImages[index].setAttribute('src', `${el.path}`);
+      smallImages[index].src = el.path;
       cityNames[index].innerHTML = el.cityName
     })
 
@@ -77,22 +77,22 @@ const fetchXaricitur = async () => {
     const data = await res.json();
 
     data.reverse().map((el) => {
-      const product = `<div class="product-card">
+      const product = `<div class="product-card" style="background-color: ${el.background}">
       <div class="product-image">
-          <a href="/xarici-turlar/${el._id}">
+        <a href="/xarici-turlar/${el._id}">
           <img src="${el.imagePath}" class="product-thumb" alt="">
         </a>
-    
+
       </div>
       <div class="product-info">
-          <h2 class="product-brand">${el.cityName}</h2>
-          <p class="product-short-description">${el.title}</p>
-          <span class="price">${el.price} AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
+        <h2 class="product-brand">${el.cityName}</h2>
+        <p class="product-short-description">${el.title}</p>
+        <span class="price">${el.price} AZN</span> <br>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
       </div>
     </div>`
 
@@ -111,22 +111,22 @@ const fetchDaxilitur = async () => {
     const data = await res.json();
 
     data.reverse().map((el) => {
-      const product = `<div class="product-card">
+      const product = `<div class="product-card" style="background-color: ${el.background}">
       <div class="product-image">
-          <a href="/daxili-turlar/${el._id}">
+        <a href="/daxili-turlar/${el._id}">
           <img src="${el.imagePath}" class="product-thumb" alt="">
         </a>
-    
+
       </div>
       <div class="product-info">
-          <h2 class="product-brand">${el.cityName}</h2>
-          <p class="product-short-description">${el.title}</p>
-          <span class="price">${el.price} AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
+        <h2 class="product-brand">${el.cityName}</h2>
+        <p class="product-short-description">${el.title}</p>
+        <span class="price">${el.price} AZN</span> <br>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
       </div>
     </div>`
 

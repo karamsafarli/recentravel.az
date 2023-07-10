@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AACG,AAAD,kBAAY,CAAC;EACX,UAAU,EAAE,UAAU;EACtB,QAAQ,EAAE,QAAQ;CACnB",
-    "sources": [
-        "container.scss"
-    ],
-    "names": [],
-    "file": "container.css"
-}
+{"version":3,"sources":["container.scss","container.css"],"names":[],"mappings":"AACE;EACE,sBAAA;EACA,kBAAA;ACAJ","file":"container.css"}

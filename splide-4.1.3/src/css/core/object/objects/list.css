@@ -1,15 +1,10 @@
 .splide__list {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  backface-visibility: hidden;
   display: flex;
   height: 100%;
   margin: 0 !important;
   padding: 0 !important;
 }
-
 .splide.is-initialized:not(.is-active) .splide__list {
   display: block;
-}
-/*# sourceMappingURL=list.css.map */
+}/*# sourceMappingURL=list.css.map */

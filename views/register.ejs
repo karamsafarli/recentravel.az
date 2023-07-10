@@ -9,30 +9,22 @@
 </head>
 
 <body class="d-flex justify-content-center align-items-center">
-    <form action="/register" method="post" class="registration_form mt-5">
-        <label for="">İstifadəçi adı:</label><br>
-        <input type="text" name="username" required><br><br>
+    <form action="/change-password" method="post" class="registration_form mt-5">
+       
 
-        <label for="">Email:</label><br>
-        <input type="email" name="email" required><br><br>
+        <label for="">Əvvəlki şifrə:</label><br>
+        <input type="password" name="oldpassword" required><br><br>
 
-        <label for="">Şifrə:</label><br>
-        <input type="password" name="password" required><br><br>
+        <label for="">Yeni şifrə:</label><br>
+        <input type="password" name="newpassword" required><br><br>
 
-        <button type="submit" class="btn btn-primary mb-2">Qeydiyyatdan keç</button>
-        <h6>Hesabınız var? <a href="/login">Daxil ol</a></h6>
+        <label for="">Yeni istifadəçi adı (istəyə bağlı):</label><br>
+        <input type="password" name="newusername" ><br><br>
+
+        <button type="submit" class="btn btn-primary mb-2">Yenilə</button>
+        <!-- <h6>Hesabınız var? <a href="/login">Daxil ol</a></h6> -->
     </form>
 
-    <!-- <script>
-        const form = document.querySelector('.registration_form');
-        form.addEventListener('submit', async () => {
-            try {
-                const res = await fetch('')
-            } catch (error) {
-                
-            }
-        })
-    </script> -->
 </body>
 
 </html>

@@ -100,7 +100,7 @@ app.get('/xarici-turlar', async (req, res) => {
 
 });
 
-app.get('/register', (req, res) => {
+app.get('/change-password', (req, res) => {
     res.render('register')
 });
 
@@ -109,18 +109,22 @@ app.get('/logout', (req, res) => {
     res.redirect('/login')
 })
 
-app.post('/register', async (req, res) => {
-    const { username, email, password } = req.body;
+app.post('/change-password', async (req, res) => {
+    const { oldpassword, newpassword, newusername } = req.body;
     try {
-        const profile = new Profile({
-            username,
-            email,
-            password
-        });
-        await profile.save();
-        res.redirect('/login')
+        const profile = await Profile.findOne();
+        if (profile.password === oldpassword) {
+            profile.password = newpassword;
+            if (newusername) {
+                profile.username = newusername
+            }
+            await profile.save()
+            res.redirect('/login')
+        } else {
+            res.status(403).send("Wrong password")
+        }
     } catch (error) {
-        res.status(500).send('Could not register');
+        res.status(500).send('Wrong password');
     }
 })
 
@@ -129,14 +133,14 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-    const { email, password } = req.body
+    const { username, password } = req.body
     try {
-        const profile = await Profile.findOne({ email: email });
-        if (profile.password === password) {
+        const profile = await Profile.findOne();
+        if (profile.password === password && profile.username === username) {
             res.cookie('adminAuth', 'true', { httpOnly: true });
             res.redirect('/admin')
         } else {
-            res.status(403).send('Email və ya şifrə yanlışdır');
+            res.status(403).send('Istifadeci adi və ya şifrə yanlışdır');
         }
     } catch (error) {
         res.status(404).send('User not found')
@@ -170,19 +174,21 @@ app.get('/admin/refresh', checkAdminAuth, async (req, res) => {
 
 app.post('/daxili-turlar', upload2.single('image'), async (req, res) => {
 
-    const { dturseher, dturtitle, dturprice } = req.body;
+    const { dturseher, dturtitle, description, dturprice, background } = req.body;
     const imgPath = req.file.path;
     try {
         const result = await cloudinary.uploader.upload(imgPath, { secure: true });
         const newCard = new DaxiliTur({
             cityName: dturseher,
             title: dturtitle,
+            description: description,
             imagePath: result.secure_url,
-            price: dturprice
+            price: dturprice,
+            background: background
         });
 
         await newCard.save();
-       
+
         res.status(201).redirect('/admin');
     } catch (error) {
         res.status(500).redirect('/admin')
@@ -212,15 +218,17 @@ app.delete('/xarici-turlar/:id', async (req, res) => {
 });
 
 app.post('/xarici-turlar', upload2.single('image'), async (req, res) => {
-    const { xturseher, xturtitle, xturprice } = req.body;
+    const { xturseher, xturtitle, description, xturprice, background } = req.body;
     const imgPath = req.file.path;
     try {
         const result = await cloudinary.uploader.upload(imgPath, { secure: true });
         const newCard = new XariciTur({
             cityName: xturseher,
             title: xturtitle,
+            description: description,
             imagePath: result.secure_url,
-            price: xturprice
+            price: xturprice,
+            background: background
         });
 
         await newCard.save();

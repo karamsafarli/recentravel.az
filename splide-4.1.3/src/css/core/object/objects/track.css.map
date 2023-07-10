@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AACG,AAAD,cAAQ,CAAC;EACP,QAAQ,EAAE,MAAM;EAChB,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,CAAC;CACX",
-    "sources": [
-        "track.scss"
-    ],
-    "names": [],
-    "file": "track.css"
-}
+{"version":3,"sources":["track.scss","track.css"],"names":[],"mappings":"AACE;EACE,gBAAA;EACA,kBAAA;EACA,UAAA;ACAJ","file":"track.css"}

@@ -16,13 +16,15 @@
   <header class="header">
     <div class="logo">
       <a href="/">
-        <img style="height: 60px; width: 150px;" src="/photo/RECENTRAVEL (1).jpg" alt="">
+        <img src="/photo/RECENTRAVEL (1).jpg" alt="">
       </a>
 
     </div>
     <nav class="nav">
       <ul class="nav-list">
-        <li class="nav-item"><a href="/">Menu</a></li>
+        <!-- deyisib -->
+        <li class="nav-item"><a href="/">Ana Səhifə</a></li>
+        <!-- buraqeder -->
         <li class="nav-item"><a href="/about">Haqqımızda</a></li>
 
         <li class="nav-item"><a href="/daxilitur">Daxili Turlar</a></li>
@@ -31,7 +33,7 @@
 
       </ul>
     </nav>
-    <div class="phone"><i class="fa-solid fa-phone">+(994 51) 290-21-90</i></div>
+
     <div class="burger-menu">
       <div class="bar"></div>
       <div class="bar"></div>
@@ -44,29 +46,30 @@
         <h1>
           <%= dTur.cityName %> Turu
         </h1>
-        <div class="col-lg-6 col-12 col-md-12">
-          <div class="dprom">
-            <h3>
-              <%= dTur.title %>
-            </h3>
-           
-            <h2>
-              <%= dTur.price %> AZN
-            </h2>
-          </div>
-        </div>
+
         <div class="col-lg-6 col-12 col-md-12">
           <div class="dpimg">
             <img src="<%= dTur.imagePath %>" alt="">
           </div>
         </div>
-        <div class="dproel">
-          <a href="https://wa.me/+994513730141">
-            <button>
-              Əldə et
-            </button>
-          </a>
+        <div class="col-lg-6 col-12 col-md-12">
+          <div class="dprom">
+            <h3><%= dTur.title %></h3>
+            <% dTur.description.split('\n').map((el)=> { %>
+              <span><%= el %></span>
+              
+              <% }) %>
+                <h2><%= dTur.price %>Azn</h2>
+          </div>
+          <div class="dproel">
+            <a href="https://wa.me/+994513730141">
+              <button>
+                Əldə et
+              </button>
+            </a>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -98,13 +101,16 @@
       </div>
     </div>
   </footer>
+  </div>
+
   <!-- wp-start -->
   <div id="sabitIkon">
-    <i class="fa-brands fa-whatsapp"></i>
+    <img src="photo/77230-instant-facebook-messaging-logo-whatsapp-icon-thumb.png" alt="">
     <ul class="altIkonlar">
       <li>
         <a href="https://wa.me/+994512902190" target="_blank">
           <i class="fa-brands fa-whatsapp"></i>
+
           Xarici tur-Visa</a>
       </li>
       <li>
@@ -119,7 +125,7 @@
       </li>
     </ul>
   </div>
-  <script src="/js/DProduct.js"></script>
+  <script src="js/DProduct.js"></script>
 </body>
 
 </html>

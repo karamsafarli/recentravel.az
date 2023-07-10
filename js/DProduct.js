@@ -17,7 +17,6 @@ document.getElementById("sabitIkon").addEventListener("click", function () {
 });
 
 
-console.log(`${window.location.pathname}/product`.split('/')[2]);
 
 
 const fetchProduct = async () => {

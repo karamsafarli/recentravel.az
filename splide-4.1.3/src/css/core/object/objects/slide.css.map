@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AACG,AAAD,cAAQ,CAAC;EACP,mBAAmB,EAAE,MAAM;EAC3B,UAAU,EAAE,UAAU;EACtB,WAAW,EAAE,CAAC;EACd,eAAe,EAAE,eAAe;EAChC,MAAM,EAAE,CAAC;EACT,QAAQ,EAAE,QAAQ;CAKnB;;AAXA,AAQC,cARM,CAQN,GAAG,CAAC;EACF,cAAc,EAAE,MAAM;CACvB",
-    "sources": [
-        "slide.scss"
-    ],
-    "names": [],
-    "file": "slide.css"
-}
+{"version":3,"sources":["slide.scss","slide.css"],"names":[],"mappings":"AACE;EACE,2BAAA;EACA,sBAAA;EACA,cAAA;EACA,gCAAA;EACA,SAAA;EACA,kBAAA;ACAJ;ADEI;EACE,sBAAA;ACAN","file":"slide.css"}

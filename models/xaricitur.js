@@ -11,13 +11,23 @@ const xariciturSchema = new mongoose.Schema({
         required: true
     },
 
+    description: {
+        type: String,
+        required: true
+    },
+
     imagePath: {
         type: String,
         required: true
     },
 
     price: {
-        type: Number,
+        type: String,
+        required: true
+    },
+
+    background: {
+        type: String,
         required: true
     }
 }, { timestamps: true });

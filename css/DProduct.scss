@@ -1,19 +1,23 @@
+
 $header-height: 60px;
 $burger-size: 30px;
 
 .header {
-  background-color: #f2f2f2;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  height: 100px;
+  width: 80%;
+  margin-left: 10%;
   
   .logo {
     img{
 		border-radius: 30px;
 		margin-top: 10px;
 		margin-left: 30px;
+    height: 60px;
+    width: 150px;
 	}
   }
   .phone{
@@ -22,11 +26,12 @@ $burger-size: 30px;
   }
   .nav {
     display: flex;
-    margin-right: 15%;
+    margin-right: 25%;
 	margin-top: 1%;
     .nav-list {
       display: flex;
       list-style: none;
+      
      
       .nav-item {
         margin-left: 20px;
@@ -65,6 +70,19 @@ $burger-size: 30px;
 
 @media (max-width: 768px) {
   .header {
+   
+  
+    .logo{
+      margin-bottom: 20px;
+      position: relative;
+      right: 15%;
+      a{
+        img{
+          height: 30px;
+          width: 80px;
+        }
+      }
+    }
 	.phone{
 		display: none;
 	}
@@ -84,9 +102,16 @@ $burger-size: 30px;
         
         .nav-list {
           flex-direction: column;
-          
+          background-color: white;
+          border-radius: 10px;
+          position: relative;
+        
+          left: 3%;
           .nav-item {
-            margin: 10px 0;
+            margin: 3px 0;
+            margin-right: 25px;
+            font-size: 5px;
+            
           }
         }
       }
@@ -94,20 +119,71 @@ $burger-size: 30px;
     
     .burger-menu {
       display: block;
-	  background-color: none;
+      position: relative;
+      
+     
+	  
     }
   }
+
 }
 @media (max-width: 1025px){
 	.header{
+    
+ 
+    .nav{
+      .nav-list{
+      
+        .nav-item{
+          a{
+            font-size: 13px;
+          }
+        }
+      }
+    }
 		.phone{
 			display: none;
 		}
 	}
+  .home-menu{
+    .Menu-h1{
+    h1{
+     display: none;
+      
+    }
+    }
+  }
 }
+@media( max-width:1250px){
+
+  .header{
+   
+ width: 90%;
+ .logo{
+  img{
+    width: 150px;
+  }
+ }
+   .nav{
+    
+    .nav-list{
+      
+      .nav-item{
+        
+        a{
+          font-size: 10px;
+        }
+      }
+    }
+   }
+  }
+
+}
+
 // header end
 .dproduct{
   h1{
+    margin-top: 10%;
     text-align: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
@@ -116,13 +192,13 @@ $burger-size: 30px;
     margin-top: 30px;
     h3{
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      
+      font-weight: 500;
     }
     span{
       display: block;
       margin-top: 25px;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 500;
 
     }
     h2{
@@ -142,6 +218,7 @@ $burger-size: 30px;
   }
   .dproel{
    margin-top: 20px;
+  
    a{
     button{
       border: 2px solid black;
@@ -162,162 +239,185 @@ $burger-size: 30px;
    }
   }
 }
-   // footer
-   $footer-background: #f2f2f2;
-   $footer-padding: 20px;
-   
-   .footer {
-     margin-top: 30px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     background-color: $footer-background;
-     padding: $footer-padding;
-     
-   
-     .left-section {
-       
-       align-items: center;
-     
-   
-       .logo {
-         font-size: 20px;
-         font-weight: bold;
+        // footer
+        $footer-background: #f2f2f2;
+        $footer-padding: 20px;
         
-       
-   
-       img{
-       width: 150px;
-       height: 70px;
-       border-radius: 30px;
-       
-       }
-       }
-     h4{
-       display: block;
-       
-       margin-top: 10px;
-   
-     }
-   
-       .quote {
-         font-size: 14px;
-         color: #666;
-       }
-     }
-   
-     .middle-section {
-       display: flex;
-       align-items: center;
-   
-       .map {
-         width: 600px;
-         height: 150px;
-         background-color: #ddd;
-       iframe{
-       height: 150px;
-       }
-       }
-     }
-   
-     .right-section {
-       display: flex;
-       align-items: flex-end;
-     
-   
-       .icons {
-         display: flex;
-         flex-direction: column;
-   
-         .icon {
-           font-size: 16px;
-           margin-bottom: 10px;
-       a{
-         display: block;
-         text-decoration: none;
-         color: rgb(124, 124, 124);
-         font-size: 25px;
-         
-         &:hover{
-           color: rgb(105, 151, 236);
-         }
-       }
-         }
-       }
-     }
-   }
-   @media (max-width: 768px) {
-     .footer{
-       .middle-section{
-         .map{
-           width: 150px;
-           iframe{
-             width: 150px;
-             height: 150px;
-           }
-         }
-       }
-       .right-section{
-         display: none;
-       }
-     }
-   }
-   @media (max-width: 1025px){
-     .footer{
-       .middle-section{
-         .map{
-           width: 200px;
-           iframe{
-             width: 200px;
-             height: 150px;
-           }
-         }
-       }
-     }
-   }
- //  footer end
-  // wp-start
-  #sabitIkon {
-    position: fixed;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    z-index: 9999;
-    cursor: pointer;
-  
-    i {
-      font-size: 40px;
-      color: green;
-    }
-  
-   
-  
-    .altIkonlar {
-      display: none;
-      position: absolute;
-      top: 0;
-      right: 100%;
-      width: 120px;
-      
-       
-  
-      li {
-        margin-bottom: 10px; 
-  list-style: none;
-        a {
-          font-size: 15px;
-          font-weight: 600;
-          display: block;
-          text-decoration: none; 
-          color: #000; 
-          i{
-            font-size: 15px;
+        .footer {
+          
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: $footer-background;
+          padding: $footer-padding;
+          
+        
+          .left-section {
+            
+            align-items: center;
+          
+        
+            .logo {
+              font-size: 20px;
+              font-weight: bold;
+             
+            
+        
+            img{
+            width: 150px;
+            height: 70px;
+            border-radius: 30px;
+            
+            }
+            }
+          h4{
+            display: block;
+            
+            margin-top: 10px;
+        
+          }
+        
+            .quote {
+              font-size: 14px;
+              color: #666;
+            }
+          }
+        
+          .middle-section {
+            display: flex;
+            align-items: center;
+        
+            .map {
+              width: 600px;
+              height: 150px;
+              background-color: #ddd;
+            iframe{
+            height: 150px;
+            }
+            }
+          }
+        
+          .right-section {
+            display: flex;
+            align-items: flex-end;
+          
+        
+            .icons {
+              display: flex;
+              flex-direction: column;
+        
+              .icon {
+                font-size: 16px;
+                margin-bottom: 10px;
+            a{
+              display: block;
+              text-decoration: none;
+              color: rgb(124, 124, 124);
+              font-size: 25px;
+              
+              &:hover{
+                color: rgb(105, 151, 236);
+              }
+            }
+              }
+            }
           }
         }
+        @media (max-width: 768px) {
+          .footer{
+            .left-section{
+              margin-right: 10px;
+              .logo{
+                img{
+                  width: 80px;
+                  height: 40px;
+                }
+              }
+              h4{
+                font-size: 14px;
+              }
+              p{
+                font-size: 12px;
+              }
+            }
+            .middle-section{
+              .map{
+                width: 120px;
+                iframe{
+                  width: 100px;
+                  height: 150px;
+                }
+              }
+            }
+            .right-section{
+              display: none;
+            }
+          }
+        }
+        @media (max-width: 1025px){
+          .footer{
+            .middle-section{
+              .map{
+                width: 200px;
+                iframe{
+                  width: 200px;
+                  height: 150px;
+                }
+              }
+            }
+          }
+        }
+      //  footer end
+      // wp-start
+      #sabitIkon {
+        position: fixed;
+        top: 95%;
+        right: 15px;
+        transform: translateY(-50%);
+        z-index: 9999;
+        cursor: pointer;
+        
+      
+       img{
+        width: 50px;
+        border-radius: 20px;
+        height: 50px;
+       }
+      
+       
+      
+        .altIkonlar {
+          display: none;
+          position: absolute;
+          bottom: 50%;
+          right: 100%;
+          width: 150px;
+          background-color: #65bc54;
+          border-radius: 10px;
+          
+          
+           
+      
+          li {
+            margin-bottom: 10px; 
+      list-style: none;
+      margin-right: 20px;
+            a {
+              font-size: 12px;
+              font-weight: 600;
+              display: block;
+              text-decoration: none; 
+              color: #000; 
+              i{
+                font-size: 15px;
+              }
+            }
+          }
+        }
+      
+        &.aktif .altIkonlar {
+          display: block;
+        }
       }
-    }
+      
   
-    &.aktif .altIkonlar {
-      display: block;
-    }
-  }
