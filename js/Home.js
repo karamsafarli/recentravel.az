@@ -13,41 +13,41 @@ document.addEventListener('click', (event) => {
 // header
 
 // JavaScript kodu
-const prevButton = document.querySelector('.pre-btn');
-const nextButton = document.querySelector('.nxt-btn');
-const productContainer = document.querySelector('.product-container');
+// const prevButton = document.querySelector('.pre-btn');
+// const nextButton = document.querySelector('.nxt-btn');
+// const productContainer = document.querySelector('.product-container');
 
-let position = 0;
-const slideWidth = 300;
+// let position = 0;
+// const slideWidth = 300;
 
-prevButton.addEventListener('click', slideLeft);
-nextButton.addEventListener('click', slideRight);
+// prevButton.addEventListener('click', slideLeft);
+// nextButton.addEventListener('click', slideRight);
 
-function slideLeft() {
-  position += slideWidth;
-  if (position > 0) {
-    position = 0;
-  }
-  productContainer.style.transform = `translateX(${position}px)`;
-}
+// function slideLeft() {
+//   position += slideWidth;
+//   if (position > 0) {
+//     position = 0;
+//   }
+//   productContainer.style.transform = `translateX(${position}px)`;
+// }
 
-function slideRight() {
-  const containerWidth = productContainer.offsetWidth;
-  const productCount = productContainer.children.length;
-  const maxPosition = -((productCount * slideWidth) - containerWidth);
+// function slideRight() {
+//   const containerWidth = productContainer.offsetWidth;
+//   const productCount = productContainer.children.length;
+//   const maxPosition = -((productCount * slideWidth) - containerWidth);
 
-  position -= slideWidth;
-  if (position < maxPosition) {
-    position = maxPosition;
-  }
-  productContainer.style.transform = `translateX(${position}px)`;
-}
+//   position -= slideWidth;
+//   if (position < maxPosition) {
+//     position = maxPosition;
+//   }
+//   productContainer.style.transform = `translateX(${position}px)`;
+// }
 // wp-start
 document.getElementById("sabitIkon").addEventListener("click", function () {
   document.getElementById("sabitIkon").classList.toggle("aktif");
 });
 
-const homeImg = document.querySelector('.home_image');
+const homeImg = document.querySelector('.HomeMenu');
 const headerText = document.querySelector('.Menu-h1 h1');
 const smallImages = document.querySelectorAll('.small_img');
 const cityNames = document.querySelectorAll('.city_name');
@@ -56,7 +56,7 @@ const fetchImages = async () => {
   try {
     const res = await fetch('https://lively-bee-beanie.cyclic.app/header-images');
     const data = await res.json()
-    homeImg.src = data[0].headerBackground.path;
+    homeImg.style.background = `url(${data[0].headerBackground.path}) center/cover no-repeat`;
     data[0].smallImages.map((el, index) => {
       smallImages[index].src = el.path;
       cityNames[index].innerHTML = el.cityName
@@ -77,7 +77,7 @@ const fetchXaricitur = async () => {
     const data = await res.json();
 
     data.reverse().map((el) => {
-      const product = `<div class="product-card" style="background-color: ${el.background}">
+      const product = `<div class="product-card swiper-slide" style="background-color: ${el.background}">
       <div class="product-image">
         <a href="/xarici-turlar/${el._id}">
           <img src="${el.imagePath}" class="product-thumb" alt="">
@@ -111,7 +111,7 @@ const fetchDaxilitur = async () => {
     const data = await res.json();
 
     data.reverse().map((el) => {
-      const product = `<div class="product-card" style="background-color: ${el.background}">
+      const product = `<div class="product-card swiper-slide" style="background-color: ${el.background}">
       <div class="product-image">
         <a href="/daxili-turlar/${el._id}">
           <img src="${el.imagePath}" class="product-thumb" alt="">
@@ -140,3 +140,4 @@ const fetchDaxilitur = async () => {
 }
 fetchXaricitur();
 fetchDaxilitur();
+

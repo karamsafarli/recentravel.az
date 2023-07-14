@@ -1,23 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500;600;700;800&display=swap');
+
 .HomeMenu {
   width: 100%;
+  position: relative;
 
   $header-height: 60px;
   $burger-size: 30px;
+  height: 640px;
 
   .header {
-    position: absolute;
+    // position: absolute;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-    width: 80%;
-    margin-left: 10%;
+    padding: 30px 30px;
+    width: 100%;
+    // margin-left: 10%;
 
     .logo {
       img {
         border-radius: 30px;
-        margin-top: 10px;
-        margin-left: 30px;
+        // margin-top: 10px;
+        // margin-left: 30px;
         height: 60px;
         width: 150px;
       }
@@ -30,25 +34,34 @@
 
     .nav {
       display: flex;
-      margin-right: 25%;
-      margin-top: 1%;
+      // margin-right: 25%;
+      // margin-top: 1%;
+
 
       .nav-list {
         display: flex;
         list-style: none;
-
+        gap: 40px;
+        margin: 0;
 
         .nav-item {
-          margin-left: 20px;
+          //  margin-left: 20px;
 
           a {
             text-decoration: none;
-            color: #333;
+            //color: #333;
             transition: color 0.3s;
-            font-size: 20px;
-            font-weight: 600;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            // font-size: 20px;
+            //font-weight: 600;
+            // font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
+            color: #FFF;
+            font-family: Comfortaa;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: 0.18px;
 
             &:hover {
               color: #555;
@@ -71,6 +84,21 @@
         margin-bottom: 5px;
       }
     }
+  }
+
+  .Menu-h1 {
+    h1 {
+      color: #FFF;
+      font-family: Comfortaa;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 149%;
+      //max-width: 680px;
+      margin-top: 80px;
+      margin-left: 30px;
+    }
+
   }
 
   @media (max-width: 768px) {
@@ -197,118 +225,85 @@
 
   // header end
 
-  .home-menu {
+
+
+
+
+  .image-wrapper {
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    gap: 20px;
+    bottom: -70px;
+    right: 100px;
 
 
-    .HomePhoto {
+
+    a {
+      text-decoration: none;
+      display: inline;
+
       img {
-        width: 100%;
-        object-fit: contain;
+        width: calc(33.33% - 10px);
+        height: auto;
+        border: none;
+        width: 150px;
+        height: 250px;
+        object-fit: cover;
+
+        &:first-child,
+        &:last-child {
+          margin: 0;
+        }
       }
 
+      h5 {
+        bottom: 50%;
+        text-align: center;
+        position: relative;
+        color: #FFF;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
 
-
+      }
     }
 
+  }
+
+
+
+}
+
+@media (max-width: 768px) {
+  .HomeMenu {
+
     .image-wrapper {
-      position: absolute;
-      display: flex;
-      left: 63%;
-
-      top: 70%;
-
-
 
       a {
-        margin-left: 15px;
-        text-decoration: none;
-        display: inline;
+        display: none;
 
         img {
-          width: calc(33.33% - 10px);
-          height: auto;
-          border: none;
-          width: 150px;
-          height: 250px;
-          object-fit: cover;
-
-          &:first-child,
-          &:last-child {
-            margin: 0;
-          }
+          display: none;
         }
 
         h5 {
-          bottom: 50%;
-          left: 30%;
-          position: relative;
-          color: black;
-          text-decoration: none;
-          font-size: 20px;
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-
+          display: none;
         }
       }
 
     }
 
     .Menu-h1 {
-      position: absolute;
-      top: 40%;
-      right: 55%;
+      display: none;
 
       h1 {
+        color: red;
+        font-size: 15px;
 
-
-        color: white;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-weight: 500;
-
-
-
-
-
-      }
-
-
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .HomeMenu {
-    .home-menu {
-      .image-wrapper {
-
-        a {
-          display: none;
-
-          img {
-            display: none;
-          }
-
-          h5 {
-            display: none;
-          }
-        }
-
-      }
-
-      .Menu-h1 {
-        display: none;
-
-        h1 {
-          color: red;
-          font-size: 15px;
-
-        }
       }
     }
+
 
   }
 }
@@ -331,23 +326,13 @@
 
     }
 
-    .Menu-h1 {
-      margin-left: 30px;
 
-      h1 {
-        font-size: 24px;
-      }
-    }
   }
 }
 
 @media (max-width :1250px) {
   .home-menu {
-    .Menu-h1 {
-      h1 {
-        right: 40%;
-      }
-    }
+
 
     .image-wrapper {
       a {
@@ -373,11 +358,10 @@
 
 h1 {
 
-  left: 50px;
+  // left: 50px;
   color: black;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 35px;
-  margin-left: 40%;
   font-weight: 600;
 
 }
@@ -498,31 +482,28 @@ h1 {
 
 
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   padding: 20px;
   margin-top: 100px;
 
 
 
   .product-category {
-    padding: 0 10vw;
-    font-size: 30px;
+    color: #1A1A1A;
+    font-family: Comfortaa;
+    font-size: 36px;
+    font-style: normal;
     font-weight: 500;
-    margin-bottom: 40px;
+    line-height: normal;
     text-transform: capitalize;
-    margin-left: 33%;
-
-    h2 {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-
+    text-align: center;
+    margin-bottom: 20px;
 
   }
 
   .product-container {
-    padding: 0 10vw;
+   // padding: 0 30px;
     display: flex;
-    overflow-x: auto;
     scroll-behavior: smooth;
 
     &::-webkit-scrollbar {
@@ -531,10 +512,8 @@ h1 {
   }
 
   .product-card {
-    flex: 0 0 auto;
-    width: 250px;
+    width: 240px;
     height: 370px;
-    margin-right: 40px;
     background-color: rgb(170, 170, 218);
     border-radius: 10px;
 
@@ -563,7 +542,7 @@ h1 {
         padding: 5px;
         border-radius: 5px;
         color: #ff7d7d;
-        right: 10px;
+        //right: 10px;
         top: 10px;
         text-transform: capitalize;
       }
@@ -600,7 +579,6 @@ h1 {
       width: 100%;
       height: 100px;
       padding-top: 10px;
-      margin-left: 10px;
 
 
       .product-brand {
@@ -692,6 +670,7 @@ h1 {
 
     .product-container {
       .product-card {
+        overflow: hidden;
         width: 250px;
         height: 320px;
 
@@ -1011,4 +990,26 @@ $footer-padding: 20px;
   &.aktif .altIkonlar {
     display: block;
   }
+}
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

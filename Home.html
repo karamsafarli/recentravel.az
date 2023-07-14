@@ -9,378 +9,93 @@
   <link rel="stylesheet" href="vendors/css/bootstrap.css">
   <link rel="stylesheet" href="css/Home.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 
 <body>
+
   <div class="HomeMenu">
-    <header class="header">
-      <div class="logo">
-        <a href="/">
-          <img src="photo/RECENTRAVEL (1).jpg" alt="">
-        </a>
 
-      </div>
-      <nav class="nav">
-        <ul class="nav-list">
-          <!-- deyisib -->
-          <li class="nav-item"><a href="/">Ana Səhifə</a></li>
-          <!-- buraqeder -->
-          <li class="nav-item"><a href="/about">Haqqımızda</a></li>
+    <div class="container">
+      <header class="header">
+        <div class="logo">
+          <a href="/">
+            <img src="photo/RECENTRAVEL (1).jpg" alt="">
+          </a>
 
-          <li class="nav-item"><a href="/daxilitur">Daxili Turlar</a></li>
-          <li class="nav-item"><a href="/xaricitur">Xarici Turlar</a></li>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <!-- deyisib -->
+            <li class="nav-item"><a href="/">Ana Səhifə</a></li>
+            <!-- buraqeder -->
+            <li class="nav-item"><a href="/about">Haqqımızda</a></li>
 
-
-        </ul>
-      </nav>
-
-      <div class="burger-menu">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-    </header>
-    <nav class="home-menu">
-      <div class="HomePhoto">
-        <img class="home_image" src="" alt="">
+            <li class="nav-item"><a href="/daxilitur">Daxili Turlar</a></li>
+            <li class="nav-item"><a href="/xaricitur">Xarici Turlar</a></li>
 
 
-      </div>
+          </ul>
+        </nav>
+
+        <div class="burger-menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </header>
       <div class="Menu-h1">
         <h1>Recent Travel ilə səyahətiniz <br> etibarlı əllərdə</h1>
       </div>
-      <div class="image-wrapper">
-        <a href="/xaricitur">
-          <img class="small_img" src="" alt="Fotoğraf 1">
-          <h5 class="city_name">London</h5>
-        </a>
-        <a href="/daxilitur">
-          <img class="small_img" src="" alt="Fotoğraf 2">
-          <h5 class="city_name"></h5>
-        </a><a href="/xaricitur">
-          <img class="small_img" src="" alt="Fotoğraf 3">
-          <h5 class="city_name"></h5>
-        </a>
 
+    </div>
+    <div class="image-wrapper">
+      <a href="/xaricitur">
+        <img class="small_img" src="" alt="Fotoğraf 1">
+        <h5 class="city_name">London</h5>
+      </a>
+      <a href="/daxilitur">
+        <img class="small_img" src="" alt="Fotoğraf 2">
+        <h5 class="city_name"></h5>
+      </a><a href="/xaricitur">
+        <img class="small_img" src="" alt="Fotoğraf 3">
+        <h5 class="city_name"></h5>
+      </a>
 
-
-      </div>
-
-    </nav>
+    </div>
   </div>
 
 
+
   <section class="product">
-    <h2 class="product-category">- Xarici Turlar - </h2>
-    <button class="pre-btn"><i class="fa-solid fa-arrow-right"></i></button>
-    <button class="nxt-btn"><i class="fa-solid fa-arrow-right"></i></button>
-    <div class="product-container xaricitur-slider">
-      <!-- <div class="product-card">
-        <div class="product-image">
-          <a href="_XProduct.html">
-            <img src="photo/Sidney.jpg" class="product-thumb" alt="">
-          </a>
+    <div class="container">
+      <h2 class="product-category">- Xarici Turlar - </h2>
+      <div class="product-container">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper xaricitur-slider">
 
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
-        <div class="product-info">
-          <h2 class="product-brand">Sidney</h2>
-          <p class="product-short-description">Sidney turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">1800 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
+
       </div>
-      <div class="product-card">
-        <div class="product-image">
-          <a href="_XProduct.html">
-            <img src="photo/Antalya.jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">Antalya</h2>
-          <p class="product-short-description">Antalya turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">1200 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="product-card">
-
-        <div class="product-image">
-          <a href="">
-            <img src="photo/hp-gq-6dec18_istock_ (1).jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-
-          <h2 class="product-brand">New York</h2>
-          <p class="product-short-description">New York turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">1200 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div>
-
-
-      <div class="product-card">
-        <div class="product-image">
-          <a href="">
-            <img src="photo/London_Big_Ben_Phone_box.jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">London</h2>
-          <p class="product-short-description">London turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">1100 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <a href="">
-            <img src="photo/Istanbul.jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">Istanbul</h2>
-          <p class="product-short-description">Istanbul turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">800 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <a href="">
-            <img src="photo/Burj_Khalifa_2021.jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">Dubai</h2>
-          <p class="product-short-description">Dubai turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">1000 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <a href="">
-            <img src="photo/Moskova.jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">Moskova</h2>
-          <p class="product-short-description">Moskova turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">1000 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <a href="">
-            <img src="photo/Tokyo.jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">Tokio</h2>
-          <p class="product-short-description">Tokio turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">1500 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div> -->
-
-
-
-
     </div>
   </section>
+
+
   <section class="product">
-    <h2 class="product-category">- Daxili Turlar - </h2>
-    <button class="pre-btn"><i class="fa-solid fa-arrow-right"></i></button>
-    <button class="nxt-btn"><i class="fa-solid fa-arrow-right"></i></button>
-    <div class="product-container daxilitur-slider">
-      <!-- <div class="product-card">
-        <div class="product-image">
-          <a href="_DProduct.html">
-            <img src="photo/shutterstock-748684810 (1).jpg" class="product-thumb" alt="">
-          </a>
+    <div class="container">
+      <h2 class="product-category">- Daxili Turlar - </h2>
+      <div class="product-container">
+        <div class="swiper mySwiper2">
+          <div class="swiper-wrapper daxilitur-slider">
 
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">Baku</h2>
-          <p class="product-short-description">Baku turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">200 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
+          </div>
+          <div class="swiper-button-next swiper-button-next2"></div>
+          <div class="swiper-button-prev swiper-button-prev2"></div>
         </div>
       </div>
-      <div class="product-card">
-        <div class="product-image">
-          <a href="">
-            <img src="photo/şəki.jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">Şəki </h2>
-          <p class="product-short-description">Şəki turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">300 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <a href="">
-            <img src="photo/300px-Ismayilli,_Azerbaijan.jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">İsmayıllı</h2>
-          <p class="product-short-description">İsmayıllı turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">300 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <a href="">
-            <img src="photo/Şuşa_qalası_(2).jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">Şuşa</h2>
-          <p class="product-short-description">Şuşa turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">300 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <a href="">
-            <img src="photo/Astara.jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">Astara</h2>
-          <p class="product-short-description">Astara turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">200 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <a href="">
-            <img src="photo/samaxi.jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">Şamaxı</h2>
-          <p class="product-short-description">Şamaxı turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">200 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <a href="">
-            <img src="photo/gabala-baku-tour.jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">Qəbələ</h2>
-          <p class="product-short-description">Qəbələ turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">300 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <a href="">
-            <img src="photo/Lənkaran.jpg" class="product-thumb" alt="">
-          </a>
-
-        </div>
-        <div class="product-info">
-          <h2 class="product-brand">Ləmkaran</h2>
-          <p class="product-short-description">Lənkaran turlarına start verildi. Yararlanmağa tələsin</p>
-          <span class="price">200 AZN</span> <br>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-          <i class="fa-sharp fa-solid fa-star"></i>
-        </div>
-      </div> -->
-
-
     </div>
   </section>
   <!-- deyisilib// -->
@@ -489,6 +204,67 @@
   </div>
 
   <script src="js/Home.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      cssMode: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      mousewheel: true,
+      keyboard: true,
+      breakpoints: {
+        200: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        550: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        991: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        1200: {
+          slidesPerView: 4,
+          spaceBetween: 23
+        },
+
+      }
+    });
+
+    var swiper2 = new Swiper(".mySwiper2", {
+      cssMode: true,
+      navigation: {
+        nextEl: ".swiper-button-next2",
+        prevEl: ".swiper-button-prev2",
+      },
+
+      mousewheel: true,
+      keyboard: true,
+      breakpoints: {
+        200: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        550: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        991: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        1200: {
+          slidesPerView: 4,
+          spaceBetween: 23
+        },
+
+      }
+    });
+  </script>
 </body>
 
 </html>
