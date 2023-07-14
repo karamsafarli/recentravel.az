@@ -1,13 +1,13 @@
 const burgerMenu = document.querySelector('.burger-menu');
-const nav = document.querySelector('.nav');
+const nav = document.querySelector('.mobile-menu');
 
 burgerMenu.addEventListener('click', () => {
-  nav.classList.toggle('active');
+  nav.classList.toggle('mob-active');
 });
 
 document.addEventListener('click', (event) => {
   if (!event.target.closest('.header')) {
-    nav.classList.remove('active');
+    nav.classList.remove('mob-active');
   }
 });
 // header
@@ -23,7 +23,7 @@ const fetchPosts = async () => {
 
   data.reverse().map((el) => {
     const card = `
-    <div class="col-lg-4 col-6 col-md-6">
+    <div class="col-lg-4 col-12 col-sm-6 col-md-6">
           <div class="product-card" style="background-color: ${el.background}">
             <div class="product-image">
               <a href="/daxili-turlar/${el._id}">

@@ -1,43 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500;600;700;800&display=swap");
+.header_container {
+  background: #D6DFE8;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.nav_container {
+  position: relative;
+}
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
-  width: 80%;
-  margin-left: 10%;
+  padding: 30px;
+  width: 100%;
+}
+.header .mobile-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px 30px;
+  right: 5px;
+  top: 70px;
+  z-index: 1000;
+}
+.header .mobile-menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.header .mobile-menu ul li {
+  font-family: Comfortaa;
+  padding: 5px 0;
+}
+.header .mobile-menu ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
 }
 .header .logo img {
   border-radius: 30px;
-  margin-top: 10px;
-  margin-left: 30px;
   height: 60px;
   width: 150px;
+}
+@media (max-width: 560px) {
+  .header .logo img {
+    height: 50px;
+    width: 110px;
+  }
 }
 .header .phone {
   margin-right: 5%;
 }
 .header .nav {
   display: flex;
-  margin-right: 15%;
-  margin-top: 1%;
 }
 .header .nav .nav-list {
   display: flex;
   list-style: none;
-}
-.header .nav .nav-list .nav-item {
-  margin-left: 20px;
+  gap: 40px;
+  margin: 0;
 }
 .header .nav .nav-list .nav-item a {
   text-decoration: none;
-  color: #333;
   transition: color 0.3s;
-  font-size: 20px;
-  font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #555;
+  font-family: Comfortaa;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.18px;
 }
 .header .nav .nav-list .nav-item a:hover {
-  color: #555;
+  color: #FFF;
 }
 .header .burger-menu {
   display: none;
@@ -52,83 +90,35 @@
   margin-bottom: 5px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+  .nav {
+    display: none !important;
+  }
   .header {
-    position: relative;
+    padding: 20px 0;
   }
-  .header .logo {
-    margin-bottom: 20px;
-    position: relative;
-    right: 20%;
-  }
-  .header .logo a img {
-    height: 30px;
-    width: 50px;
-  }
-  .header .phone {
-    display: none;
-  }
-  .header .nav {
-    display: none;
-  }
-  .header .nav.active {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    position: relative;
-    top: 60px;
-    width: 96%;
-    padding: 20px;
-  }
-  .header .nav.active .nav-list {
-    display: block;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 10px;
-    position: relative;
-    left: 10%;
-  }
-  .header .nav.active .nav-list .nav-item {
-    margin: 3px 0;
-    margin-right: 25px;
-    font-size: 5px;
-  }
-  .header .burger-menu {
-    display: block;
-    position: relative;
-  }
-}
-@media (max-width: 1025px) {
-  .header {
-    width: 90%;
-  }
-  .header .nav .nav-list .nav-item a {
-    font-size: 12px;
-  }
-  .header .phone {
-    display: none;
-  }
-}
-@media (max-width: 1250px) {
-  .header .nav .nav-list .nav-item a {
-    font-size: 16px;
+  .burger-menu {
+    display: block !important;
   }
 }
 .daxilitur {
   margin-top: 20px;
-  margin-left: 10%;
+  padding: 30px 0 70px 0;
 }
 .daxilitur h1 {
-  margin-left: 35%;
+  text-align: center;
+  font-family: Comfortaa;
+  margin-bottom: 20px;
 }
 .daxilitur .product-card {
-  margin-top: 10%;
-  flex: 0 0 auto;
-  width: 250px;
-  height: 370px;
-  margin-right: 40px;
+  width: 100%;
   background-color: rgb(170, 170, 218);
   border-radius: 10px;
+}
+@media (max-width: 576px) {
+  .daxilitur .product-card {
+    margin-bottom: 15px;
+  }
 }
 .daxilitur .product-card .product-image {
   position: relative;
@@ -137,6 +127,7 @@
   overflow: hidden;
 }
 .daxilitur .product-card .product-image a img {
+  width: 100%;
   border-radius: 10px;
 }
 .daxilitur .product-card .product-image .product-thumb {
@@ -180,9 +171,8 @@
 }
 .daxilitur .product-card .product-info {
   width: 100%;
-  height: 100px;
-  padding-top: 10px;
-  margin-left: 10px;
+  padding: 15px;
+  height: 180px;
 }
 .daxilitur .product-card .product-info .product-brand {
   text-transform: uppercase;
@@ -205,18 +195,6 @@
   color: #f49300;
 }
 
-@media (max-width: 768px) {
-  .daxilitur h1 {
-    position: relative;
-    right: 14%;
-  }
-  .daxilitur .product-card {
-    position: relative;
-    right: 15%;
-    width: 170px;
-    height: 400px;
-  }
-}
 .footer {
   display: flex;
   justify-content: space-between;
@@ -351,4 +329,8 @@
 }
 #sabitIkon.aktif .altIkonlar {
   display: block;
+}
+
+.mob-active {
+  display: block !important;
 }/*# sourceMappingURL=DaxiliTur.css.map */

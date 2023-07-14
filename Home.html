@@ -16,7 +16,7 @@
 
   <div class="HomeMenu">
 
-    <div class="container">
+    <div class="container nav_container">
       <header class="header">
         <div class="logo">
           <a href="/">
@@ -38,10 +38,20 @@
           </ul>
         </nav>
 
+
         <div class="burger-menu">
           <div class="bar"></div>
           <div class="bar"></div>
           <div class="bar"></div>
+        </div>
+
+        <div class="mobile-menu">
+          <ul>
+            <li class="nav-item"><a href="/">Ana Səhifə</a></li>
+            <li class="nav-item"><a href="/about">Haqqımızda</a></li>
+            <li class="nav-item"><a href="/daxilitur">Daxili Turlar</a></li>
+            <li class="nav-item"><a href="/xaricitur">Xarici Turlar</a></li>
+          </ul>
         </div>
       </header>
       <div class="Menu-h1">
@@ -49,6 +59,7 @@
       </div>
 
     </div>
+
     <div class="image-wrapper">
       <a href="/xaricitur">
         <img class="small_img" src="" alt="Fotoğraf 1">
@@ -75,10 +86,10 @@
           <div class="swiper-wrapper xaricitur-slider">
 
           </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
 
+        </div>
+        <div class="swiper-button-next next1"></div>
+        <div class="swiper-button-prev prev1"></div>
       </div>
     </div>
   </section>
@@ -92,9 +103,10 @@
           <div class="swiper-wrapper daxilitur-slider">
 
           </div>
-          <div class="swiper-button-next swiper-button-next2"></div>
-          <div class="swiper-button-prev swiper-button-prev2"></div>
+
         </div>
+        <div class="swiper-button-next swiper-button-next2"></div>
+        <div class="swiper-button-prev swiper-button-prev2"></div>
       </div>
     </div>
   </section>
@@ -209,8 +221,8 @@
     var swiper = new Swiper(".mySwiper", {
       cssMode: true,
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".next1",
+        prevEl: ".prev1",
       },
       mousewheel: true,
       keyboard: true,

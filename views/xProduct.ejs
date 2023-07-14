@@ -13,53 +13,76 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="logo">
-      <a href="/">
-        <img src="/photo/RECENTRAVEL (1).jpg" alt="">
-      </a>
+
+  <div class="header_container">
+    <div class="container nav_container">
+      <header class="header">
+        <div class="logo">
+          <a href="/">
+            <img src="/photo/RECENTRAVEL (1).jpg" alt="">
+          </a>
+
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="/">Ana Səhifə</a></li>
+            <li class="nav-item"><a href="/about">Haqqımızda</a></li>
+            <li class="nav-item"><a href="/daxilitur">Daxili Turlar</a></li>
+            <li class="nav-item"><a href="/xaricitur">Xarici Turlar</a></li>
+          </ul>
+        </nav>
+
+
+        <div class="burger-menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+
+        <div class="mobile-menu">
+          <ul>
+            <li class="nav-item"><a href="/">Ana Səhifə</a></li>
+            <li class="nav-item"><a href="/about">Haqqımızda</a></li>
+            <li class="nav-item"><a href="/daxilitur">Daxili Turlar</a></li>
+            <li class="nav-item"><a href="/xaricitur">Xarici Turlar</a></li>
+          </ul>
+        </div>
+      </header>
+
 
     </div>
-    <nav class="nav">
-      <ul class="nav-list">
-        <!-- deyisib -->
-        <li class="nav-item"><a href="/">Ana Səhifə</a></li>
-        <!-- buraqeder -->
-        <li class="nav-item"><a href="/about">Haqqımızda</a></li>
+  </div>
 
-        <li class="nav-item"><a href="/daxilitur">Daxili Turlar</a></li>
-        <li class="nav-item"><a href="/xaricitur">Xarici Turlar</a></li>
-
-
-      </ul>
-    </nav>
-
-    <div class="burger-menu">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-  </header>
   <section class="dproduct">
     <div class="container">
+      <h1>
+        <%= xTur.cityName %> Turu
+      </h1>
+
       <div class="row">
-        <h1>
-          <%= xTur.cityName %> Turu
-        </h1>
 
         <div class="col-lg-6 col-12 col-md-12">
           <div class="dpimg">
             <img src="<%= xTur.imagePath %>" alt="">
           </div>
         </div>
-        <div class="col-lg-6 col-12 col-md-12">
+        <div class="col-lg-6 col-12 col-md-12 row_right">
           <div class="dprom">
-            <h3><%= xTur.title %></h3>
-            <% xTur.description.split('\n').map((el)=> { %>
-              <span><%= el %></span>
-              
-              <% }) %>
-                <h2><%= xTur.price %>Azn</h2>
+            <h3>
+              <%= xTur.title %>
+            </h3>
+            <ul>
+              <% xTur.description.split('\n').map((el)=> { %>
+                <li>
+                  <%= el %>
+                </li>
+
+                <% }) %>
+            </ul>
+            <h2 class="turprice">
+              <%= xTur.price %> Azn
+              <div class="shadow"></div>
+            </h2>
           </div>
           <div class="dproel">
             <a href="https://wa.me/+994513730141">
@@ -73,6 +96,8 @@
       </div>
     </div>
   </section>
+
+
 
   <footer class="footer">
     <div class="left-section">

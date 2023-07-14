@@ -1,13 +1,13 @@
 const burgerMenu = document.querySelector('.burger-menu');
-const nav = document.querySelector('.nav');
+const nav = document.querySelector('.mobile-menu');
 
 burgerMenu.addEventListener('click', () => {
-  nav.classList.toggle('active');
+  nav.classList.toggle('mob-active');
 });
 
 document.addEventListener('click', (event) => {
   if (!event.target.closest('.header')) {
-    nav.classList.remove('active');
+    nav.classList.remove('mob-active');
   }
 });
 // header

@@ -4,6 +4,15 @@
   position: relative;
   height: 640px;
 }
+@media (max-width: 768px) {
+  .HomeMenu {
+    height: 300px;
+    padding: 0 20px;
+  }
+}
+.HomeMenu .nav_container {
+  position: relative;
+}
 .HomeMenu .header {
   display: flex;
   align-items: center;
@@ -15,6 +24,12 @@
   border-radius: 30px;
   height: 60px;
   width: 150px;
+}
+@media (max-width: 560px) {
+  .HomeMenu .header .logo img {
+    height: 50px;
+    width: 110px;
+  }
 }
 .HomeMenu .header .phone {
   margin-right: 5%;
@@ -65,67 +80,9 @@
   margin-left: 30px;
 }
 @media (max-width: 768px) {
-  .HomeMenu .header .logo {
-    margin-bottom: 20px;
-    position: relative;
-    right: 15%;
-  }
-  .HomeMenu .header .logo a img {
-    height: 30px;
-    width: 80px;
-  }
-  .HomeMenu .header .phone {
-    display: none;
-  }
-  .HomeMenu .header .nav {
-    display: none;
-  }
-  .HomeMenu .header .nav.active {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    position: absolute;
-    top: 60px;
-    width: 96%;
-    padding: 20px;
-  }
-  .HomeMenu .header .nav.active .nav-list {
-    flex-direction: column;
-    background-color: white;
-    border-radius: 10px;
-    position: relative;
-    left: 3%;
-  }
-  .HomeMenu .header .nav.active .nav-list .nav-item {
-    margin: 3px 0;
-    margin-right: 25px;
-    font-size: 5px;
-  }
-  .HomeMenu .header .burger-menu {
-    display: block;
-    position: relative;
-  }
-}
-@media (max-width: 1025px) {
-  .HomeMenu .header .nav .nav-list .nav-item a {
-    font-size: 13px;
-  }
-  .HomeMenu .header .phone {
-    display: none;
-  }
-  .HomeMenu .home-menu .Menu-h1 h1 {
-    display: none;
-  }
-}
-@media (max-width: 1250px) {
-  .HomeMenu .header {
-    width: 90%;
-  }
-  .HomeMenu .header .logo img {
-    width: 150px;
-  }
-  .HomeMenu .header .nav .nav-list .nav-item a {
-    font-size: 10px;
+  .HomeMenu .Menu-h1 h1 {
+    font-size: 30px;
+    margin: 30px 0;
   }
 }
 .HomeMenu .image-wrapper {
@@ -161,47 +118,46 @@
   font-weight: 600;
   line-height: normal;
 }
-
 @media (max-width: 768px) {
-  .HomeMenu .image-wrapper a {
-    display: none;
-  }
-  .HomeMenu .image-wrapper a img {
-    display: none;
-  }
-  .HomeMenu .image-wrapper a h5 {
-    display: none;
-  }
-  .HomeMenu .Menu-h1 {
-    display: none;
-  }
-  .HomeMenu .Menu-h1 h1 {
-    color: red;
-    font-size: 15px;
+  .HomeMenu .image-wrapper {
+    display: none !important;
   }
 }
-@media (max-width: 1025px) {
-  .home-menu .image-wrapper a {
-    display: none;
+@media (max-width: 991px) {
+  .HomeMenu .nav {
+    display: none !important;
   }
-  .home-menu .image-wrapper a img {
-    display: none;
+  .HomeMenu .header {
+    padding: 20px 0;
   }
-  .home-menu .image-wrapper a h5 {
-    display: none;
-  }
-}
-@media (max-width: 1250px) {
-  .home-menu .image-wrapper a {
-    display: none;
-  }
-  .home-menu .image-wrapper a img {
-    display: none;
-  }
-  .home-menu .image-wrapper a h5 {
-    display: none;
+  .HomeMenu .burger-menu {
+    display: block !important;
   }
 }
+.HomeMenu .mobile-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px 30px;
+  right: 5px;
+  top: 70px;
+}
+.HomeMenu .mobile-menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.HomeMenu .mobile-menu ul li {
+  font-family: Comfortaa;
+  padding: 5px 0;
+}
+.HomeMenu .mobile-menu ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+}
+
 h1 {
   color: black;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -298,6 +254,9 @@ h1 {
   position: relative;
   padding: 20px;
   margin-top: 100px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .product .product-category {
   color: #1A1A1A;
@@ -316,6 +275,19 @@ h1 {
 }
 .product .product-container::-webkit-scrollbar {
   display: none;
+}
+.product .product-container .next1,
+.product .product-container .prev1,
+.product .product-container .swiper-button-next2,
+.product .product-container .swiper-button-prev2 {
+  margin-top: 20px;
+}
+.product .product-container .next1::after,
+.product .product-container .prev1::after,
+.product .product-container .swiper-button-next2::after,
+.product .product-container .swiper-button-prev2::after {
+  font-size: 40px;
+  color: black;
 }
 .product .product-card {
   width: 240px;
@@ -669,4 +641,8 @@ h1 {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.mob-active {
+  display: block !important;
 }/*# sourceMappingURL=Home.css.map */

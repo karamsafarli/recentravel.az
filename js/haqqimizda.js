@@ -1,13 +1,13 @@
 const burgerMenu = document.querySelector('.burger-menu');
-const nav = document.querySelector('.nav');
+const nav = document.querySelector('.mobile-menu');
 
 burgerMenu.addEventListener('click', () => {
-  nav.classList.toggle('active');
+  nav.classList.toggle('mob-active');
 });
 
 document.addEventListener('click', (event) => {
   if (!event.target.closest('.header')) {
-    nav.classList.remove('active');
+    nav.classList.remove('mob-active');
   }
 });
 // header
@@ -25,7 +25,7 @@ const fetchEmployees = async () => {
     const data = await res.json();
 
     data.map((el) => {
-      const card = `<div class="col-lg-4 col-6 col-md-6">
+      const card = `<div class="col-lg-4 col-md-6 col-sm-12 col-12 emp_card">
       <img src="${el.photo}" alt="">
       <div class="haqqimizda-m">
         <h2>${el.name}</h2>
