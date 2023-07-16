@@ -15,11 +15,11 @@ const cloudinary = require('./cloudinary');
 //const MongoDBStore = require('connect-mongodb-session')(session);
 const cookieParser = require('cookie-parser');
 
-
+const port = process.env.PORT || 3000
 
 
 mongoose.connect(process.env.MONGODB_URI.toString(), { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(3000, async () => {
+    .then(() => app.listen(port, async () => {
         console.log('App is listening on port 3000')
     }))
     .catch((err) => console.log(err))
