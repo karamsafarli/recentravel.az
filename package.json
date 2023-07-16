@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "dependencies": {
     "cloudinary": "^1.37.2",
     "connect-mongo": "^5.0.0",
