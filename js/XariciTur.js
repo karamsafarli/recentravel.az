@@ -18,7 +18,7 @@ document.getElementById("sabitIkon").addEventListener("click", function () {
 
 const XariciTurlar = document.querySelector('.xaricitur_container')
 const fetchPosts = async () => {
-  const res = await fetch('https://lively-bee-beanie.cyclic.app/xarici-turlar');
+  const res = await fetch('https://recenttravel-zrug.onrender.com/xarici-turlar');
   const data = await res.json()
 
   data.reverse().map((el) => {
