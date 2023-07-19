@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500;600;700;800&display=swap');
 
+
+html {
+  scroll-behavior: auto !important;
+}
+
 .HomeMenu {
   @media (max-width: 768px) {
     height: 300px;
@@ -29,12 +34,13 @@
         border-radius: 30px;
         height: 60px;
         width: 150px;
+
         @media (max-width: 560px) {
           height: 50px;
           width: 110px;
         }
       }
-     
+
     }
 
     .phone {
@@ -331,90 +337,8 @@
 
 }
 
-// @media (max-width: 768px) {
-//   .HomeMenu {
-
-//     .image-wrapper {
-
-//       a {
-//         display: none;
-
-//         img {
-//           display: none;
-//         }
-
-//         h5 {
-//           display: none;
-//         }
-//       }
-
-//     }
-
-//     .Menu-h1 {
-//       display: none;
-
-//       h1 {
-//         color: red;
-//         font-size: 15px;
-
-//       }
-//     }
-
-
-//   }
-// }
-
-// @media (max-width: 1025px) {
-//   .home-menu {
-//     .image-wrapper {
-
-//       a {
-//         display: none;
-
-//         img {
-//           display: none;
-//         }
-
-//         h5 {
-//           display: none;
-//         }
-//       }
-
-//     }
-
-
-//   }
-// }
-
-// @media (max-width :1250px) {
-//   .home-menu {
-
-
-//     .image-wrapper {
-//       a {
-//         display: none;
-
-//         img {
-//           display: none;
-//         }
-
-//         h5 {
-//           display: none;
-//         }
-//       }
-
-
-//     }
-//   }
-// }
-
-// home menu end
-
-
 
 h1 {
-
-  // left: 50px;
   color: black;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 35px;
@@ -1090,4 +1014,31 @@ $footer-padding: 20px;
 
 .mob-active {
   display: block !important;
+}
+
+.preloader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  height: 100vh !important;
+  background-color: white;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.none {
+  display: none !important;
+}
+
+.block {
+  display: flex !important;
+}
+
+.overflow {
+  overflow-y: hidden !important;
+  height: 100vh !important;
 }

@@ -80,6 +80,10 @@ app.get('/xaricitur', (req, res) => {
     res.sendFile(path.join(__dirname, '_XariciTur.html'));
 });
 
+app.get('/visa', (req, res) => {
+    res.sendFile(path.join(__dirname, 'visa.html'));
+});
+
 app.get('/daxili-turlar', async (req, res) => {
     try {
         const daxiliTurlar = await DaxiliTur.find();

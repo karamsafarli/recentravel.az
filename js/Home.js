@@ -10,38 +10,7 @@ document.addEventListener('click', (event) => {
     nav.classList.remove('mob-active');
   }
 });
-// header
 
-// JavaScript kodu
-// const prevButton = document.querySelector('.pre-btn');
-// const nextButton = document.querySelector('.nxt-btn');
-// const productContainer = document.querySelector('.product-container');
-
-// let position = 0;
-// const slideWidth = 300;
-
-// prevButton.addEventListener('click', slideLeft);
-// nextButton.addEventListener('click', slideRight);
-
-// function slideLeft() {
-//   position += slideWidth;
-//   if (position > 0) {
-//     position = 0;
-//   }
-//   productContainer.style.transform = `translateX(${position}px)`;
-// }
-
-// function slideRight() {
-//   const containerWidth = productContainer.offsetWidth;
-//   const productCount = productContainer.children.length;
-//   const maxPosition = -((productCount * slideWidth) - containerWidth);
-
-//   position -= slideWidth;
-//   if (position < maxPosition) {
-//     position = maxPosition;
-//   }
-//   productContainer.style.transform = `translateX(${position}px)`;
-// }
 // wp-start
 document.getElementById("sabitIkon").addEventListener("click", function () {
   document.getElementById("sabitIkon").classList.toggle("aktif");
@@ -51,10 +20,16 @@ const homeImg = document.querySelector('.HomeMenu');
 const headerText = document.querySelector('.Menu-h1 h1');
 const smallImages = document.querySelectorAll('.small_img');
 const cityNames = document.querySelectorAll('.city_name');
+const preloader = document.querySelector('.preloader');
+const body = document.querySelector('body');
 
 const fetchImages = async () => {
+  window.scrollTo(0,0)
+  preloader.classList.add('block');
+  body.classList.add('overflow');
+  
   try {
-    const res = await fetch('https://recenttravel-zrug.onrender.com/header-images');
+    const res = await fetch('https://recentravel.az/header-images');
     const data = await res.json()
     homeImg.style.background = `url(${data[0].headerBackground.path}) center/cover no-repeat`;
     data[0].smallImages.map((el, index) => {
@@ -64,6 +39,9 @@ const fetchImages = async () => {
 
   } catch (error) {
     console.log(error)
+  } finally {
+    preloader.classList.remove('block');
+    body.classList.remove('overflow');
   }
 }
 
@@ -73,7 +51,7 @@ const xariciTurSlider = document.querySelector('.xaricitur-slider');
 const daxiliTurSlider = document.querySelector('.daxilitur-slider');
 const fetchXaricitur = async () => {
   try {
-    const res = await fetch('https://recenttravel-zrug.onrender.com/xarici-turlar');
+    const res = await fetch('https://recentravel.az/xarici-turlar');
     const data = await res.json();
 
     data.reverse().map((el) => {
@@ -107,7 +85,7 @@ const fetchXaricitur = async () => {
 
 const fetchDaxilitur = async () => {
   try {
-    const res = await fetch(`https://recenttravel-zrug.onrender.com/daxili-turlar`);
+    const res = await fetch(`https://recentravel.az/daxili-turlar`);
     const data = await res.json();
 
     data.reverse().map((el) => {

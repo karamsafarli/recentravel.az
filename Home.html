@@ -14,6 +14,9 @@
 </head>
 
 <body>
+  <div class="preloader">
+    <img src="./photo/preloader_2.gif" alt="">
+  </div>
 
   <div class="HomeMenu">
 
@@ -159,7 +162,6 @@
 
     </div>
 
-    </div>
 
 
   </section>
@@ -191,7 +193,7 @@
       </div>
     </div>
   </footer>
-  </div>
+
 
   <!-- wp-start -->
   <div id="sabitIkon">
@@ -201,7 +203,7 @@
         <a href="https://wa.me/+994512902190" target="_blank">
           <i class="fa-brands fa-whatsapp"></i>
 
-          Xarici tur-Visa</a>
+          Xarici tur</a>
       </li>
       <li>
         <a href="https://wa.me/+994513730141" target="_blank">
@@ -214,6 +216,7 @@
           Aviobilet</a>
       </li>
     </ul>
+  </div>
   </div>
 
   <script src="js/Home.js"></script>
@@ -249,14 +252,17 @@
     });
 
     var swiper2 = new Swiper(".mySwiper2", {
-      cssMode: true,
+      // cssMode: true,
       navigation: {
         nextEl: ".swiper-button-next2",
         prevEl: ".swiper-button-prev2",
       },
-
-      mousewheel: true,
-      keyboard: true,
+      autoplay: {
+        delay: 3000, 
+        disableOnInteraction: false, 
+      },
+       mousewheel: true,
+      // keyboard: true,
       breakpoints: {
         200: {
           slidesPerView: 1,

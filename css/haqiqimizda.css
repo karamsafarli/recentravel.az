@@ -197,11 +197,24 @@
 }
 
 @media (max-width: 768px) {
+  .footer .left-section {
+    margin-right: 10px;
+  }
+  .footer .left-section .logo img {
+    width: 80px;
+    height: 40px;
+  }
+  .footer .left-section h4 {
+    font-size: 14px;
+  }
+  .footer .left-section p {
+    font-size: 12px;
+  }
   .footer .middle-section .map {
-    width: 150px;
+    width: 120px;
   }
   .footer .middle-section .map iframe {
-    width: 150px;
+    width: 100px;
     height: 150px;
   }
   .footer .right-section {
@@ -260,4 +273,31 @@
 
 .mob-active {
   display: block !important;
+}
+
+.preloader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  height: 100vh !important;
+  background-color: white;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.none {
+  display: none !important;
+}
+
+.block {
+  display: flex !important;
+}
+
+.overflow {
+  overflow-y: hidden !important;
+  height: 100vh !important;
 }/*# sourceMappingURL=haqiqimizda.css.map */

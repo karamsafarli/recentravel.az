@@ -18,10 +18,13 @@ document.getElementById("sabitIkon").addEventListener("click", function () {
 
 
 const aboutContainer = document.querySelector('.about_container');
-
+const preloader = document.querySelector('.preloader');
+const body = document.querySelector('body');
 const fetchEmployees = async () => {
+  preloader.classList.add('block');
+  body.classList.add('overflow');
   try {
-    const res = await fetch('https://recenttravel-zrug.onrender.com/about-employee');
+    const res = await fetch('https://recentravel.az/about-employee');
     const data = await res.json();
 
     data.map((el) => {
@@ -39,6 +42,9 @@ const fetchEmployees = async () => {
     })
   } catch (error) {
     console.log(error)
+  } finally {
+    preloader.classList.remove('block');
+    body.classList.remove('overflow');
   }
 }
 

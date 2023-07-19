@@ -16,13 +16,19 @@ document.getElementById("sabitIkon").addEventListener("click", function () {
   document.getElementById("sabitIkon").classList.toggle("aktif");
 });
 
-const XariciTurlar = document.querySelector('.xaricitur_container')
-const fetchPosts = async () => {
-  const res = await fetch('https://recenttravel-zrug.onrender.com/xarici-turlar');
-  const data = await res.json()
+const XariciTurlar = document.querySelector('.xaricitur_container');
 
-  data.reverse().map((el) => {
-    const card = `
+const preloader = document.querySelector('.preloader');
+const body = document.querySelector('body');
+const fetchPosts = async () => {
+  preloader.classList.add('block');
+  body.classList.add('overflow');
+  try {
+    const res = await fetch('https://recentravel.az/xarici-turlar');
+    const data = await res.json()
+
+    data.reverse().map((el) => {
+      const card = `
     <div class="col-lg-4 col-12 col-sm-6 col-md-6">
           <div class="product-card" style="background-color: ${el.background}">
             <div class="product-image">
@@ -45,8 +51,14 @@ const fetchPosts = async () => {
         </div>
     `;
 
-    XariciTurlar.innerHTML += card;
-  })
+      XariciTurlar.innerHTML += card;
+    })
+  } catch (error) {
+    console.log(error)
+  } finally {
+    preloader.classList.remove('block');
+    body.classList.remove('overflow');
+  }
 }
 
 fetchPosts()
