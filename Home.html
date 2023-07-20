@@ -2,16 +2,6 @@
 <html lang="en">
 
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-5PD8DWH4');</script>
-  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,10 +14,6 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PD8DWH4" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <div class="preloader">
     <img src="./photo/preloader_2.gif" alt="">
   </div>
@@ -140,23 +126,23 @@
           <div class="elaqe">
 
             <h2>Biletlərin əldə edilməsi üçün <br> bizimlə əlaqə saxlayın</h2>
-            <a href="">
+            <a href="mailto:recentravel@gmail.com">
 
               <p> <i class="fa-regular fa-at"></i> recentravel@gmail.com</p>
 
             </a>
 
-            <a href="">
+            <a href="https://wa.me/+994512902191">
 
               <p> <i class="fa-solid fa-phone"></i> +994 51 290 21 91</p>
 
             </a>
-            <a href="">
+            <a href="https://wa.me/+994512902190">
 
               <p> <i class="fa-solid fa-phone"></i> +994 51 290 21 90</p>
 
             </a>
-            <a href="">
+            <a href="https://wa.me/+994513730141">
 
               <p> <i class="fa-solid fa-phone"></i> +994 51 373 01 41</p>
 
@@ -239,13 +225,14 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
     var swiper = new Swiper(".mySwiper", {
-      cssMode: true,
       navigation: {
         nextEl: ".next1",
         prevEl: ".prev1",
       },
-      mousewheel: true,
-      keyboard: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
       breakpoints: {
         200: {
           slidesPerView: 1,
@@ -261,24 +248,21 @@
         },
         1200: {
           slidesPerView: 4,
-          spaceBetween: 23
+          spaceBetween: 23,
         },
 
       }
     });
 
     var swiper2 = new Swiper(".mySwiper2", {
-      // cssMode: true,
       navigation: {
         nextEl: ".swiper-button-next2",
         prevEl: ".swiper-button-prev2",
       },
       autoplay: {
-        delay: 3000,
+        delay: 5000,
         disableOnInteraction: false,
       },
-      mousewheel: true,
-      // keyboard: true,
       breakpoints: {
         200: {
           slidesPerView: 1,

@@ -734,7 +734,6 @@ h1 {
         margin-top: 15px;
 
         &:hover {
-          border: none;
           background-color: rgb(97, 150, 185);
           color: white;
         }
@@ -983,8 +982,7 @@ $footer-padding: 20px;
 .swiper {
   width: 100%;
   height: 100%;
-
-
+  cursor: grab;
 }
 
 .swiper-slide {

@@ -5,22 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RecenTravel - Visa</title>
-    <link rel="stylesheet" href="vendors/css/bootstrap.css">
-    <link rel="stylesheet" href="css/visa.css">
+    <title>RecenTravel - <%= vTur.cityName %> Turu</title>
+    <link rel="stylesheet" href="/vendors/css/bootstrap.css">
+    <link rel="stylesheet" href="/vendors/js/jquery-3.6.0.min.js">
+    <link rel="stylesheet" href="/css/visaProduct.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
 </head>
 
 <body>
-    <div class="preloader">
-        <img src="./photo/preloader_2.gif" alt="">
-    </div>
+
     <div class="header_container">
         <div class="container nav_container">
             <header class="header">
                 <div class="logo">
                     <a href="/">
-                        <img src="photo/RECENTRAVEL (1).jpg" alt="">
+                        <img src="/photo/RECENTRAVEL (1).jpg" alt="">
                     </a>
 
                 </div>
@@ -56,21 +55,53 @@
         </div>
     </div>
 
-
-    <div class="daxilitur">
-        <h1>- Visa -</h1>
+    <section class="dproduct">
         <div class="container">
-            <div class="row daxilitur_container g-4">
+            <h1>
+                <%= vTur.cityName %> Turu
+            </h1>
+
+            <div class="row">
+
+                <div class="col-lg-6 col-12 col-md-12">
+                    <div class="dpimg">
+                        <img src="<%= vTur.imagePath %>" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 col-md-12 row_right">
+                    <div class="dprom">
+                        <h3>
+                            <%= vTur.title %>
+                        </h3>
+                        <ul>
+                            <% vTur.description.split('\n').map((el)=> { %>
+                                <li>
+                                    <%= el %>
+                                </li>
+
+                                <% }) %>
+                        </ul>
+                        
+                    </div>
+                    <div class="dproel">
+                        <a href="https://wa.me/+994505925141">
+                            <button>
+                                Əldə et
+                            </button>
+                        </a>
+                    </div>
+                </div>
 
             </div>
         </div>
+    </section>
 
 
-    </div>
+
     <footer class="footer">
         <div class="left-section">
             <div class="logo">
-                <img src="photo/RECENTRAVEL (1).jpg" alt="">
+                <img src="/photo/RECENTRAVEL (1).jpg" alt="">
             </div>
             <h4>2023</h4>
             <p>Bütün hüquqlarınız qorunur</p>
@@ -96,9 +127,11 @@
             </div>
         </div>
     </footer>
+    </div>
+
     <!-- wp-start -->
     <div id="sabitIkon">
-        <img src="photo/77230-instant-facebook-messaging-logo-whatsapp-icon-thumb.png" alt="">
+        <img src="/photo/77230-instant-facebook-messaging-logo-whatsapp-icon-thumb.png" alt="">
         <ul class="altIkonlar">
             <li>
                 <a href="https://wa.me/+994512902190" target="_blank">
@@ -118,8 +151,7 @@
             </li>
         </ul>
     </div>
-
-    <script src="js/visa.js"></script>
+    <script src="/js/DProduct.js"></script>
 </body>
 
 </html>

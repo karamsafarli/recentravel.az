@@ -231,7 +231,7 @@ app.post('/xarici-turlar', upload2.single('image'), async (req, res) => {
 });
 
 
-app.get('/visa-turlar', async (req,res) => {
+app.get('/visa-turlar', async (req, res) => {
     try {
         const visaTurlar = await Visa.find();
         res.status(200).json(visaTurlar);
@@ -240,6 +240,16 @@ app.get('/visa-turlar', async (req,res) => {
     }
 
 });
+
+app.get('/visa-turlar/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const vTur = await Visa.findById(id);
+        res.render('vProduct', { vTur })
+    } catch (error) {
+        res.status(404).send('Product not found')
+    }
+})
 
 app.post('/visa-turlar', upload2.single('image'), async (req, res) => {
     const { vturseher, vturtitle, description, background } = req.body;
@@ -261,7 +271,7 @@ app.post('/visa-turlar', upload2.single('image'), async (req, res) => {
     }
 });
 
-app.delete('/visa-turlar/:id', async (req,res) => {
+app.delete('/visa-turlar/:id', async (req, res) => {
     const id = req.params.id;
 
     try {

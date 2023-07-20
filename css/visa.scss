@@ -137,6 +137,7 @@ $burger-size: 30px;
 .daxilitur {
   margin-top: 20px;
   padding: 30px 0 70px 0;
+  // margin-left: 10%;
 
   h1 {
     text-align: center;
@@ -148,7 +149,7 @@ $burger-size: 30px;
     @media (max-width: 576px) {
       margin-bottom: 15px;
     }
-   
+
     width: 100%;
     background-color: rgb(170, 170, 218);
     border-radius: 10px;
@@ -215,7 +216,7 @@ $burger-size: 30px;
 
       width: 100%;
       padding: 15px;
-      height: 180px;
+      height: 130px;
 
 
       .product-brand {
