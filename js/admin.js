@@ -25,6 +25,19 @@ xTurDelBtn.map((el, index) => {
         }
     })
 });
+const vTurDelBtn = [...document.querySelectorAll('.vtur-delbtn')];
+vTurDelBtn.map((el, index) => {
+    el.addEventListener('click', async (e) => {
+        let permission = confirm('Silmək üçün təsdiqlə');
+        if (permission) {
+            await fetch(`/visa-turlar/${el.dataset.id}`, {
+                method: 'DELETE'
+            })
+        } else {
+            e.preventDefault()
+        }
+    })
+});
 
 const bgFormbtn = document.querySelector('.bg_form_btn');
 bgFormbtn.addEventListener('click', async (e) => {

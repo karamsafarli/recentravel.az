@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Recent Admin</title>
     <link rel="stylesheet" href="/css/DaxiliTur.css">
     <link rel="stylesheet" href="/css/XariciTur.css">
     <link rel="stylesheet" href="/css/haqiqimizda.css">
@@ -70,7 +70,7 @@
                                         </a>
 
                                     </div>
-                                    <div class="product-info" >
+                                    <div class="product-info">
                                         <h2 class="product-brand">
                                             <%= el.cityName %>
                                         </h2>
@@ -179,6 +179,81 @@
         </div>
         <br><br>
         <hr><br><br>
+
+
+        <div class="visa_turlar">
+            <div class="container">
+                <h1 class="mb-4">Visa</h1>
+            </div>
+
+            <div class="daxilitur">
+                <div class="container">
+                    <div class="row dtur_container g-5">
+                        <div class="col-lg-4 col-6 col-md-6">
+                            <form action="/visa-turlar" method="post" enctype="multipart/form-data">
+                                <label for="vturseher">Səyahət ediləcək şəhər</label>
+                                <br>
+                                <input type="text" name="vturseher" class="vtur_city" required>
+                                <br><br>
+
+                                <label for="vturtitle">Başlıq</label>
+                                <br>
+                                <textarea name="vturtitle" class="vtur_title" cols="30" rows="3" required></textarea>
+                                <br><br>
+
+                                <label for="description">Ətraflı məlumat</label>
+                                <br>
+                                <textarea name="description" cols="30" rows="10" required></textarea>
+                                <br><br>
+
+                                <label for="vturimage">Şəkil əlavə edin</label>
+                                <br>
+                                <input type="file" name="image" class="vtur_file_input" required>
+                                <br><br>
+
+                                <label for="background">Background color</label>
+                                <br>
+                                <input type="text" name="background" required>
+                                <br>
+
+                                <button type="submit" class="xarici_form btn btn-primary mt-2">Add</button>
+                            </form>
+                        </div>
+                        <% visaTurlar.reverse().map((el)=> { %>
+                            <div class="col-lg-4 col-6 col-md-6">
+                                <div class="product-card" style="background-color: <%= el.background %>">
+                                    <div class="product-image">
+                                        <a href="/visa-turlar/<%= el._id %>">
+                                            <img src="<%= el.imagePath %>" class="product-thumb" alt="">
+                                        </a>
+
+                                    </div>
+                                    <div class="product-info">
+                                        <h2 class="product-brand">
+                                            <%= el.cityName %>
+                                        </h2>
+                                        <p class="product-short-description">
+                                            <%= el.title %>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+                                <form action="">
+                                    <button class="btn btn-danger vtur-delbtn mt-2" data-id="<%= el._id %>"
+                                        type="submit">Delete</button>
+                                </form>
+                            </div>
+                            <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <br><br>
+        <hr><br><br>
+
+
 
         <div class="modify_images">
             <div class="container">

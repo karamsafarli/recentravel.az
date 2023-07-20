@@ -4,15 +4,14 @@ const DaxiliTur = require('./models/daxilitur');
 const XariciTur = require('./models/xaricitur');
 const app = express();
 const mongoose = require('mongoose');
-//const session = require('express-session');
 const path = require('path');
 const multer = require('multer');
 const cors = require('cors');
 const Images = require('./models/images');
 const Employee = require('./models/employee');
 const Profile = require('./models/profile');
+const Visa = require('./models/visaschema');
 const cloudinary = require('./cloudinary');
-//const MongoDBStore = require('connect-mongodb-session')(session);
 const cookieParser = require('cookie-parser');
 
 const port = process.env.PORT || 3000
@@ -36,17 +35,6 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser())
 
-
-// app.use(session({
-//     secret: process.env.SESSION_SECRET,
-//     resave: false,
-//     saveUninitialized: true,
-//     store: store,
-//     cookie: {
-//         secure: true,
-//         maxAge: 1000 * 60 * 60 * 24,
-//     },
-// }));
 
 // const storage = multer.diskStorage({
 //     destination: (req, file, cb) => {
@@ -163,9 +151,9 @@ app.get('/admin', checkAdminAuth, async (req, res) => {
     const daxiliTurlar = await DaxiliTur.find();
     const xariciTurlar = await XariciTur.find();
     const employees = await Employee.find();
+    const visaTurlar = await Visa.find();
 
-
-    res.render('admin', { daxiliTurlar, xariciTurlar, employees })
+    res.render('admin', { daxiliTurlar, xariciTurlar, employees, visaTurlar })
 })
 
 app.get('/admin/refresh', checkAdminAuth, async (req, res) => {
@@ -241,6 +229,48 @@ app.post('/xarici-turlar', upload2.single('image'), async (req, res) => {
         res.status(500).redirect('/admin')
     }
 });
+
+
+app.get('/visa-turlar', async (req,res) => {
+    try {
+        const visaTurlar = await Visa.find();
+        res.status(200).json(visaTurlar);
+    } catch (error) {
+        res.status(404).send('Visa turlar not found')
+    }
+
+});
+
+app.post('/visa-turlar', upload2.single('image'), async (req, res) => {
+    const { vturseher, vturtitle, description, background } = req.body;
+    const img = req.file.path;
+    try {
+        const result = await cloudinary.uploader.upload(img, { secure: true });
+        const newVisa = new Visa({
+            cityName: vturseher,
+            title: vturtitle,
+            description: description,
+            imagePath: result.secure_url,
+            background: background
+        });
+
+        await newVisa.save();
+        res.status(201).redirect('/admin');
+    } catch (error) {
+        res.status(500).redirect('/admin')
+    }
+});
+
+app.delete('/visa-turlar/:id', async (req,res) => {
+    const id = req.params.id;
+
+    try {
+        await Visa.findByIdAndDelete(id);
+        res.status(201).redirect('/admin');
+    } catch (error) {
+        res.status(500).send('Cannot delete this post');
+    }
+})
 
 
 app.get('/header-images', async (req, res) => {
