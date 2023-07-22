@@ -58,6 +58,11 @@ const upload2 = multer({ storage: storage2 })
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'Home.html'));
 });
+
+app.get('/googlef283f9a24c738c1c.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'googlef283f9a24c738c1c.html'));
+});
+
 app.get('/about', (req, res) => {
     res.sendFile(path.join(__dirname, '_haqqimizda.html'));
 });
